@@ -1,11 +1,9 @@
-import './MainHeader.css';
 import React from 'react'
-import AppHeader from './Header/AppHeader';
+import AppHeader from './AppHeader/AppHeader';
 import Uindex from './UsersPanel/Uindex';
+import './MainHeader.css';
 
-
-
-function App() {
+function AppHead() {
   return (
     <div className="headerDiv">
 <AppHeader/>
@@ -14,4 +12,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppHead;

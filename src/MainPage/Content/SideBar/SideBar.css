@@ -1,0 +1,12 @@
+.sidebar{
+  /* height: max-content;   */
+  height: max-content;  
+background-color: #bb99ff78;
+width: 40%; 
+display: inline-flex;
+border-radius: 5px;
+
+  display:inline-grid;
+  grid-gap: 10px;
+
+}

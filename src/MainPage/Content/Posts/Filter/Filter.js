@@ -4,7 +4,10 @@ import './Filter.css';
 function Filter() {
   return (
     <div className="filt">
-fdvfvdv
+<button>Newest</button>
+<button>Older</button>
+<button>All</button>
+
     </div>
   );
 }

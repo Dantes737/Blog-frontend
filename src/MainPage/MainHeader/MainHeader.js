@@ -1,13 +1,13 @@
 import React from 'react'
 import AppHeader from './AppHeader/AppHeader';
-import Uindex from './UsersPanel/Uindex';
+import UPanel from './UsersPanel/UPanel';
 import './MainHeader.css';
 
 function AppHead() {
   return (
     <div className="headerDiv">
 <AppHeader/>
-<Uindex/>
+<UPanel/>
     </div>
   );
 }

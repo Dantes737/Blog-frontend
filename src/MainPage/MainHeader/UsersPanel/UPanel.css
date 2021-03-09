@@ -1,7 +1,10 @@
 .users{
  margin: 5px;
  margin-top: 10px;
- height: 140px;
+ height:max-content;
+
  border-radius: 5px;
  background-color: #bb99ff78;
+
+
 }

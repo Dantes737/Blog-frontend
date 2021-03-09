@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 // import PostsAndfilter from './Posts/PostsAndfilter';
 import './SecondBar.css';
 

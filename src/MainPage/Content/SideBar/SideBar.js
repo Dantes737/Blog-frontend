@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import FirstBar from './FirstBar/FirstBar';
 import SecondBar from './SecondBar/SecondBar';
 

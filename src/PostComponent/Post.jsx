@@ -2,12 +2,14 @@ import React from 'react';
 import './Post.css';
 
 
-function Post() {
+
+function Post(props) {
     return (
         <div className="post">
-            <div>User nick</div>
-            <img src="" alt="Post IMG" />
-            <p>Some text</p>
+            <div>{props.nick}</div>
+            
+                <img className="postImg" src={props.img} alt="Post IMG" />
+            <p>{props.text}</p>
             <div>Data</div>
 
         </div>

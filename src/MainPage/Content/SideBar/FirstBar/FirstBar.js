@@ -1,12 +1,14 @@
 import React from 'react';
-// import PostsAndfilter from './Posts/PostsAndfilter';
+import {NavLink} from "react-router-dom";
+
 import './FirstBar.css';
 
 function FirstBar() {
   return (
     <div className="firstbar">
-  dffdfdfdfdd
-     
+  Current User
+    <NavLink to="/profile">Go to my profile</NavLink> 
+ 
     </div>
   );
 }

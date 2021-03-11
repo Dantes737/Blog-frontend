@@ -1,0 +1,12 @@
+.post{
+    background-color: #e0d0ff;
+    border-radius: 5px;
+    height:max-content;
+}
+.postImg{
+    width:90%;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}

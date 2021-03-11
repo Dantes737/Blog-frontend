@@ -5,19 +5,36 @@ import User from "../../../UserComponent/User";
 
 
 function App() {
+
+  let myUsers = [
+    {
+      nick: "dantesUA",
+      src: "https://walkersarewelcome.org.uk/wp-content/uploads/computer-icons-google-account-icon-design-login-png-favpng-jFjxPac6saRuDE3LiyqsYTEZM.jpg"
+    },
+    {
+      nick: "neo",
+      src: "https://walkersarewelcome.org.uk/wp-content/uploads/computer-icons-google-account-icon-design-login-png-favpng-jFjxPac6saRuDE3LiyqsYTEZM.jpg"
+    },
+    {
+      nick: "pony",
+      src: "https://walkersarewelcome.org.uk/wp-content/uploads/computer-icons-google-account-icon-design-login-png-favpng-jFjxPac6saRuDE3LiyqsYTEZM.jpg"
+    },
+    {
+      nick: "Kapibara",
+      src: "https://walkersarewelcome.org.uk/wp-content/uploads/computer-icons-google-account-icon-design-login-png-favpng-jFjxPac6saRuDE3LiyqsYTEZM.jpg"
+    },
+    {
+      nick: "Duck",
+      src: "https://walkersarewelcome.org.uk/wp-content/uploads/computer-icons-google-account-icon-design-login-png-favpng-jFjxPac6saRuDE3LiyqsYTEZM.jpg"
+    }
+  ]
+
+  let usersComponents = myUsers.map((user) =>
+    <User nick={user.nick} src={user.src} />)
+    
   return (
     <div className="users">
-      
-        <User nick="DantesUA"
-          src="https://walkersarewelcome.org.uk/wp-content/uploads/computer-icons-google-account-icon-design-login-png-favpng-jFjxPac6saRuDE3LiyqsYTEZM.jpg" />
-     
-        <User nick="Neo"
-          src="https://walkersarewelcome.org.uk/wp-content/uploads/computer-icons-google-account-icon-design-login-png-favpng-jFjxPac6saRuDE3LiyqsYTEZM.jpg" />
-   
-        <User nick="Pony"
-          src="https://walkersarewelcome.org.uk/wp-content/uploads/computer-icons-google-account-icon-design-login-png-favpng-jFjxPac6saRuDE3LiyqsYTEZM.jpg" />
-  
-
+      {usersComponents}
     </div>
   );
 }

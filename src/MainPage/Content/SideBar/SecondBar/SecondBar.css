@@ -1,6 +1,6 @@
 .secondbar{
   /* height: max-content;   */
-  height: 200px;  
+  height: max-content;  
 background-color: #e0d0ff;
 width: 100%; 
 border-radius: 5px;

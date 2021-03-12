@@ -4,11 +4,11 @@ import SecondBar from './SecondBar/SecondBar';
 
 import './SideBar.css';
 
-function SideBar() {
+function SideBar(props) {
   return (
     <div className="sidebar">
   <FirstBar/>
-   <SecondBar/>
+   <SecondBar  friends={props.friends}/>
 
      
     </div>

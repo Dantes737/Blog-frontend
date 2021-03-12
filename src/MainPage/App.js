@@ -5,16 +5,16 @@ import {
 } from "react-router-dom";
 import IndexB from './Content/IndexB';
 import UserProfile from './Content/UserProfile/UserProfile';
-import './Blog.css';
+import './App.css';
 
-function MyApp() {
+function MyApp(props) {
   return (
     <div className="globalDiv">
-      <MainHeader />
+      <MainHeader  />
       <Router>
 
         <Route path="/profile" component={UserProfile} />
-        <Route exact path="/" component={IndexB} />
+        <Route exact path="/" render={()=><IndexB appstate={props.appstate}/>} />
 
       </Router>
     </div>

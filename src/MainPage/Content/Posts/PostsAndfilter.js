@@ -4,11 +4,11 @@ import Posts from './Posts/Posts';
 import './PostsAndfilter.css';
 
 
-function BandP() {
+function BandP(props) {
   return (
     <div className="allCont">
 <Filter/>
-<Posts/>
+<Posts myPosts={props.posts}/>
     </div>
   );
 }

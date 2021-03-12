@@ -1,11 +1,14 @@
 import React from 'react';
-// import PostsAndfilter from './Posts/PostsAndfilter';
+import User from '../../../../UserComponent/User';
 import './SecondBar.css';
 
-function SecondBar() {
+function SecondBar(props) {
+
+  let myFriends=props.friends.map(f=><User nick={f.nick} src={f.src}/>)
+
   return (
     <div className="secondbar">
-  dffdfdfdfdd
+ {myFriends}
      
     </div>
   );

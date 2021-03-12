@@ -6,7 +6,7 @@
     margin: 0.5%;
     display:inline-block;
 }
-.avatar{
+.avatar{ 
     
         display: block;
         margin-top: 15%;
@@ -20,5 +20,5 @@
     margin-top: 6%;
     margin-left: auto;
     margin-right: auto; 
-    width: min-content;
+    width: max-content;
 }

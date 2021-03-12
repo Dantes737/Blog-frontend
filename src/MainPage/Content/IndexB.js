@@ -8,12 +8,12 @@ import UPanel from './UsersPanel/UPanel';
 
 import './IndexB.css';
 
-function IndexB() {
+function IndexB(props) {
   return (
     <div className="App">
-<UPanel/>
-     <PostsAndfilter/>
-     <SideBar/>
+      <UPanel users={props.appstate.myUsers} />
+      <PostsAndfilter posts={props.appstate.myPosts} />
+      <SideBar friends={props.appstate.myFriends}/>
     </div>
   );
 }

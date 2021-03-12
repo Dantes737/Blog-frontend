@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Blog from './MainPage/Blog'
+import App from './MainPage/App';
 import reportWebVitals from './reportWebVitals';
+import state from './redux/state';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Blog />
+    <App appstate={state} />
   </React.StrictMode>,
   document.getElementById('root')
 );

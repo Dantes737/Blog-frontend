@@ -1,9 +1,13 @@
 import React from 'react';
 import './Post.css';
+import Coments from "./Coments/Coments";
+
 
 
 
 function Post(props) {
+
+
     return (
         <div className="post">
             <div>{props.nick}</div>
@@ -11,7 +15,7 @@ function Post(props) {
                 <img className="postImg" src={props.img} alt="Post IMG" />
             <p>{props.text}</p>
             <div>Data</div>
-
+<Coments coments={props.coments} />
         </div>
     )
 }

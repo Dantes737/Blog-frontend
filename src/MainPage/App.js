@@ -14,7 +14,7 @@ function MyApp(props) {
       <Router>
 
         <Route path="/profile" component={UserProfile} />
-        <Route exact path="/" render={()=><IndexB appstate={props.appstate}/>} />
+        <Route exact path="/" render={()=><IndexB addPost={props.addPost} appstate={props.appstate}/>} />
 
       </Router>
     </div>

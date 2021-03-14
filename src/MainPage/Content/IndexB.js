@@ -12,8 +12,12 @@ function IndexB(props) {
   return (
     <div className="App">
       <UPanel users={props.appstate.myUsers} />
-      <PostsAndfilter posts={props.appstate.myPosts} />
-      <SideBar friends={props.appstate.myFriends}/>
+      <PostsAndfilter
+      addPost={props.addPost}
+        posts={props.appstate.myPosts}
+        coments={props.appstate.myComents}
+      />
+      <SideBar friends={props.appstate.myFriends} />
     </div>
   );
 }

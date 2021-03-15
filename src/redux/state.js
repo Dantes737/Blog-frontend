@@ -1,3 +1,7 @@
+let rerenderEntyreTree = () => {
+    console.log('State changed');
+};
+
 let state = {
     myUsers: [
         {
@@ -100,6 +104,11 @@ export let addPost = (pText) => {
         text: pText
     };
     state.myPosts.push(newPost);
+    rerenderEntyreTree();
+};
+
+export let subscriber = (observer) => {
+    rerenderEntyreTree = observer
 };
 
 export default state;

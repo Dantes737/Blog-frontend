@@ -3,20 +3,27 @@ import './Filter.css';
 
 
 function Filter(props) {
-let newPostEl=React.createRef();
+  let newPostEl = React.createRef();
 
   let addMyPost = function () {
     let textInp = newPostEl.current.value;
     props.addPost(textInp)
-  }
+    newPostEl.current.value = ''
+  };
 
+  //=========================================
+  let changeTextArea = () => {
+    let text = newPostEl.current.value;
+    console.log(text);
+  };
+  //=============================================
   return (
     <div className="filt">
       <button>Newest</button>
       <button>Older</button>
       <button>All</button>
+      <textarea onChange={changeTextArea} ref={newPostEl} />
       <button onClick={addMyPost} className="addBtn">Add post</button>
-      <textarea ref={newPostEl}></textarea>
 
     </div>
   );

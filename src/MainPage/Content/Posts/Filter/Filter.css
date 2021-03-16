@@ -9,7 +9,7 @@
 
 .addBtn {
     background-color: #00c3a3; 
-    border: none;
+    border: 2px solid #00c3a3 ;
     color: white;
     padding: 19px 32px;
     text-align: center;
@@ -24,6 +24,7 @@
   }
   
 .addBtn:hover {
+  border: 2px solid #00c3a3 ;
     background-color: white; /* Green */
     color: #00c3a3;
   }

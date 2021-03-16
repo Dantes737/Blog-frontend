@@ -2,8 +2,9 @@
     border-bottom: 2px solid blueviolet;
     background-color: #e0d0ff;
     margin-top: 2px;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+    /* border-top-right-radius: 5px;
+    border-top-left-radius: 5px; */
+    border-radius: 5px;
     height: max-content;
 }
 

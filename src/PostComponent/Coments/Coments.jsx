@@ -1,7 +1,7 @@
 import React from 'react';
 import UserComent from "./UserComent/UserComent";
 import { addComentActionCreator } from "../../redux/coments-reducer";
-
+import "./Coments.css";
 
 
 function Coments(props) {
@@ -16,8 +16,10 @@ function Coments(props) {
     };
     return (
         <div className="coments">
-            <button onClick={addCom}>Add  coment</button>
-            <textarea ref={comentText}></textarea>
+            <textarea className="textInp" ref={comentText}></textarea>
+            <button
+            className="addComBtn"
+            onClick={addCom}>Add  coment</button>
 
             {usersComents}
         </div>

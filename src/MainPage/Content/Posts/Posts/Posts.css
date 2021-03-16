@@ -1,9 +1,9 @@
 .posts{
-  background-color:#c2bdce78;
+  /* background-color:#c2bdce78; */
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 height: max-content;
-
+width: 100%;
   display:inline-grid;
   grid-gap: 10px;
 

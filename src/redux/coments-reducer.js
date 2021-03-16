@@ -1,6 +1,25 @@
 const ADDCOMMENT = "ADD-COMMENT";
 
-const comentsReducer = (state, action) => {
+let initialState = [
+    {
+        id: 33,
+        nick: "Dantes",
+        text: "my dlmvml,dlcmdcmltext jhcjhchsdhjdhvjs"
+    },
+    {
+        id: 43,
+        nick: "pony",
+        text: "sdcsdc dscsdc sdcmy text jhcjhchsdhjdhvjs"
+    },
+    {
+        id: 73,
+        nick: "Kapibara",
+        text: "Hello best vdvldvlmd,vdlvdprogramist"
+    }
+
+]
+
+const comentsReducer = (state=initialState, action) => {
 
     switch (action.type) {
         case ADDCOMMENT:

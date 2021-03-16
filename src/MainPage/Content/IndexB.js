@@ -13,7 +13,7 @@ function IndexB(props) {
     <div className="App">
       <UPanel users={props.appstate.myUsers} />
       <PostsAndfilter
-      addPost={props.addPost}
+      dispatch={props.dispatch}
         posts={props.appstate.myPosts}
         coments={props.appstate.myComents}
       />

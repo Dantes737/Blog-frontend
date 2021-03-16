@@ -12,9 +12,9 @@ function MyApp(props) {
     <div className="globalDiv">
       <MainHeader  />
       <Router>
-
+  
         <Route path="/profile" component={UserProfile} />
-        <Route exact path="/" render={()=><IndexB addPost={props.addPost} appstate={props.appstate}/>} />
+        <Route exact path="/" render={()=><IndexB dispatch={props.dispatch} appstate={props.appstate}/>} />
 
       </Router>
     </div>

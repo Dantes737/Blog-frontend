@@ -7,7 +7,7 @@ function Filter(props) {
 
   let addMyPost = function () {
     let textInp = newPostEl.current.value;
-    props.addPost(textInp)
+    props.dispatch({ type: "ADD-POST", text: textInp })
     newPostEl.current.value = ''
   };
 

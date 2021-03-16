@@ -7,8 +7,8 @@ import './PostsAndfilter.css';
 function BandP(props) {
   return (
     <div className="allCont">
-<Filter addPost={props.addPost}/>
-<Posts myComents={props.coments} myPosts={props.posts}/>
+      <Filter dispatch={props.dispatch} />
+      <Posts myComents={props.coments} myPosts={props.posts} />
     </div>
   );
 }

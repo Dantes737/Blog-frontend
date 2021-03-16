@@ -8,7 +8,7 @@
 }
 
 .addBtn {
-    background-color: #008CBA; 
+    background-color: #00c3a3; 
     border: none;
     color: white;
     padding: 19px 32px;
@@ -25,5 +25,5 @@
   
 .addBtn:hover {
     background-color: white; /* Green */
-    color: #008CBA;
+    color: #00c3a3;
   }

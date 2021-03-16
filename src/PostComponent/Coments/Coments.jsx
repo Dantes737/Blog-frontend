@@ -1,5 +1,6 @@
 import React from 'react';
 import UserComent from "./UserComent/UserComent";
+import { addComentActionCreator } from "../../redux/coments-reducer";
 
 
 
@@ -9,8 +10,9 @@ function Coments(props) {
 
     let comentText = React.createRef();
     let addCom = () => {
-        let text = comentText.current.value;
-        alert(text)
+        let textInp = comentText.current.value;
+        props.dispatch(addComentActionCreator(textInp))
+        comentText.current.value = ''
     };
     return (
         <div className="coments">

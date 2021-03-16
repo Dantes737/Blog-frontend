@@ -1,3 +1,7 @@
+import postsReducer from "./posts-reducer";
+import comentsReducer from "./coments-reducer";
+
+
 let store = {
     _state: {
         myUsers: [
@@ -101,22 +105,16 @@ let store = {
     getState() {
         return this._state
     },
-    addPost(text){
-        let newPost = {
-            id: 1229,
-            img: "https://klike.net/uploads/posts/2019-01/1547365376_1.jpg",
-            nick: "Pikachu",
-            text: text
-        };
-        this._state.myPosts.push(newPost);
-        this._callSubscriber();
-    },
     dispatch(action) {
-        if (action.type === "ADD-POST") {
-            this.addPost(action.text)
-        }
+
+        this._state.myPosts = postsReducer(this._state.myPosts, action);
+        this._state.myComents = comentsReducer(this._state.myComents, action);
+
+        this._callSubscriber();
+
     }
 }
+
 
 
 

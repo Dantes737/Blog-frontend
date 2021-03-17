@@ -8,7 +8,6 @@ function Posts(props) {
 
   let postsConp = props.myPosts
     .map(p => <Post
-      dispatch={props.dispatch}
        coments={props.myComents} img={p.img} nick={p.nick} text={p.text} />)
 
   return (

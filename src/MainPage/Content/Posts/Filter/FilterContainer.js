@@ -1,11 +1,7 @@
-// import React from 'react';
 import { connect } from 'react-redux';
 import Filter from './Filter.js';
 import { addPostActionCreator } from "../../../../redux/posts-reducer";
 
-// let addPostActionCreator=(textInp)=>{
-//   return{ type: "ADD-POST", text: textInp }
-// }
 
 const mapDispatchToProps = (dispatch) => {
   return {

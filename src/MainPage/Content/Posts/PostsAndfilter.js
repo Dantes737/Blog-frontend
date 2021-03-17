@@ -1,17 +1,14 @@
 import React from 'react';
 import FilterContainer from './Filter/FilterContainer'
-import Posts from './Posts/Posts';
+import PostsContainer from './Posts/PostsContainer';
 import './PostsAndfilter.css';
 
 
-function BandP(props) {
+function BandP() {
   return (
     <div className="allCont">
       <FilterContainer/>
-      <Posts
-        dispatch={props.dispatch}
-        myComents={props.coments}
-        myPosts={props.posts} />
+      <PostsContainer />
     </div>
   );
 }

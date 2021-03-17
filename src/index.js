@@ -12,7 +12,7 @@ let renderEntierTree = () => {
     ReactDOM.render(
         <React.StrictMode>
             <Provider store={store}>
-                <App appstate={store.getState()} />
+                <App/>
             </Provider>
         </React.StrictMode>,
         document.getElementById('root')

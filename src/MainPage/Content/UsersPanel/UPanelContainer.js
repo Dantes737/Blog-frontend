@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import UPanel from './UPanel.js';
-
+    
 
 const mapStateToProps = (state) => {
   return {

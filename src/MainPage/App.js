@@ -7,14 +7,14 @@ import IndexB from './Content/IndexB';
 import UserProfile from './Content/UserProfile/UserProfile';
 import './App.css';
 
-function MyApp(props) {
+function MyApp() {
   return (
     <div className="globalDiv">
       <MainHeader  />
       <Router>
   
         <Route path="/profile" component={UserProfile} />
-        <Route exact path="/" render={()=><IndexB appstate={props.appstate}/>} />
+        <Route exact path="/" render={()=><IndexB/>} />
 
       </Router>
     </div>

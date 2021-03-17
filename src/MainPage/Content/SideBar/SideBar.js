@@ -1,14 +1,14 @@
 import React from 'react';
 import FirstBar from './FirstBar/FirstBar';
-import SecondBar from './SecondBar/SecondBar';
+import SecondBContainer from './SecondBar/SecondBContainer';
 
 import './SideBar.css';
 
-function SideBar(props) {
+function SideBar() {
   return (
     <div className="sidebar">
   <FirstBar/>
-   <SecondBar  friends={props.friends}/>
+   <SecondBContainer />
 
      
     </div>

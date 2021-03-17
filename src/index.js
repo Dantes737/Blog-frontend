@@ -3,6 +3,7 @@ import store from './redux/redux-store'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './MainPage/App';
+import {Provider} from 'react-redux';
 
 
 
@@ -10,7 +11,9 @@ let renderEntierTree = () => {
 
     ReactDOM.render(
         <React.StrictMode>
-            <App appstate={store.getState()} dispatch={store.dispatch.bind(store)} />
+            <Provider store={store}>
+                <App appstate={store.getState()} />
+            </Provider>
         </React.StrictMode>,
         document.getElementById('root')
     );

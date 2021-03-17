@@ -1,6 +1,5 @@
 import React from 'react';
 import './Filter.css';
-import { addPostActionCreator } from "../../../../redux/posts-reducer";
 
 // let addPostActionCreator=(textInp)=>{
 //   return{ type: "ADD-POST", text: textInp }
@@ -12,7 +11,7 @@ function Filter(props) {
 
   let addMyPost = function () {
     let textInp = newPostEl.current.value;
-    props.dispatch(addPostActionCreator(textInp))
+    props.addUserPost(textInp)
     newPostEl.current.value = ''
   };
 

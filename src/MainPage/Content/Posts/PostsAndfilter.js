@@ -1,5 +1,5 @@
 import React from 'react';
-import Filter from './Filter/Filter'
+import FilterContainer from './Filter/FilterContainer'
 import Posts from './Posts/Posts';
 import './PostsAndfilter.css';
 
@@ -7,7 +7,7 @@ import './PostsAndfilter.css';
 function BandP(props) {
   return (
     <div className="allCont">
-      <Filter dispatch={props.dispatch} />
+      <FilterContainer/>
       <Posts
         dispatch={props.dispatch}
         myComents={props.coments}

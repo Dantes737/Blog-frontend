@@ -1,7 +1,7 @@
 import React from 'react';
 import PostsAndfilter from './Posts/PostsAndfilter';
 import SideBar from './SideBar/SideBar';
-import UPanel from './UsersPanel/UPanel';
+import UPanelContainer from './UsersPanel/UPanelContainer';
 
 
 
@@ -11,7 +11,7 @@ import './IndexB.css';
 function IndexB(props) {
   return (
     <div className="App">
-      <UPanel users={props.appstate.myUsers} />
+      <UPanelContainer/>
       <PostsAndfilter
       dispatch={props.dispatch}
         posts={props.appstate.myPosts}

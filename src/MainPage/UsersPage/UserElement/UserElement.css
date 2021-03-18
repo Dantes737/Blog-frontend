@@ -1,0 +1,18 @@
+.user{
+    
+      margin: 1%;
+      border-radius: 5px;
+      height:max-content;
+      background-color: #ffffff78;
+}
+.uIMG{
+  width: 100px;
+  border-radius: 50%;
+}
+.nickDD{
+  display: inline;
+}
+.imgdd{
+  display: inline;
+}
+

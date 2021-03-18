@@ -5,16 +5,19 @@ import {
 } from "react-router-dom";
 import IndexB from './Content/IndexB';
 import UserProfile from './Content/UserProfile/UserProfile';
+import UPanelContainer from './UsersPage/UPageContainer.js';
+
 import './App.css';
 
 function MyApp() {
   return (
     <div className="globalDiv">
-      <MainHeader  />
       <Router>
+      <MainHeader  />
   
-        <Route path="/profile" component={UserProfile} />
         <Route exact path="/" render={()=><IndexB/>} />
+        <Route path="/profile" component={UserProfile} />
+        <Route exact path="/users-page" render={()=><UPanelContainer/>} />
 
       </Router>
     </div>

@@ -8,7 +8,7 @@ function Posts(props) {
 
   let postsConp = props.myPosts
     .map(p => <Post
-       coments={props.myComents} img={p.img} nick={p.nick} text={p.text} />)
+       coments={props.myComents} key={p.id} img={p.img} nick={p.nick} text={p.text} />)
 
   return (
     <div className="posts">

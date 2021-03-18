@@ -25,15 +25,29 @@ const comentsReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADDCOMMENT:
-            let newComment = {
-                id: 1998,
-                nick: "Dantes",
-                text: action.text
+            ///////////////////Можна 2 способами
+
+            // let newComment = {
+            //     id: 1998,
+            //     nick: "Dantes",
+            //     text: action.text
+            // };
+
+            // let stateCopy = { ...state };
+            // stateCopy.coments = [...state.coments];
+            // stateCopy.coments.push(newComment);
+            // return stateCopy;
+
+            /////////АБО////////////
+            
+            return {
+                ...state,
+                coments: [...state.coments,
+                { id: 1998, nick: "Dantes", text: action.text }
+                ]
             };
-            let stateCopy = { ...state };
-            stateCopy.coments = [...state.coments];
-            stateCopy.coments.push(newComment);
-            return stateCopy;
+        //////////////////////////////////
+
 
         default:
             return state;

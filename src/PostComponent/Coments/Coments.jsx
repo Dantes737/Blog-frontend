@@ -5,7 +5,7 @@ import "./Coments.css";
 
 function Coments(props) {
 
-    let usersComents = props.coments.map(c => <UserComent nick={c.nick} text={c.text} key={props.id}/>)
+    let usersComents = props.coments.map(c => <UserComent key={c.id} nick={c.nick} text={c.text} />)
 
     let comentText = React.createRef();
     let addCom = () => {

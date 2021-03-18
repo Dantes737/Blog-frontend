@@ -27,17 +27,29 @@ const postsReducer = (state = initialState, action) => {//якщо state не п
 
     switch (action.type) {
         case ADDPOST:
-            let newPost = {
-                id: 1229,
-                img: "https://klike.net/uploads/posts/2019-01/1547365376_1.jpg",
-                nick: "Pikachu",
-                text: action.text
-            };
-            let stateCopy = { ...state };
-            stateCopy.posts = [...state.posts];
-            stateCopy.posts.push(newPost);
-            return stateCopy;
 
+            // let newPost = {
+            // id: 1229,
+            // img: "https://klike.net/uploads/posts/2019-01/1547365376_1.jpg",
+            // nick: "Pikachu",
+            // text: action.text
+            // };
+            // let stateCopy = { ...state };
+            // stateCopy.posts = [...state.posts];
+            // stateCopy.posts.push(newPost);
+            // return stateCopy;
+            
+            return {
+                ...state,
+                posts: [...state.posts,
+                {
+                    id: 1229,
+                    img: "https://klike.net/uploads/posts/2019-01/1547365376_1.jpg",
+                    nick: "Pikachu",
+                    text: action.text
+                }
+                ]
+            }
 
         default:
             return state;

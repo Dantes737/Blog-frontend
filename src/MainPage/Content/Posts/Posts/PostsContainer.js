@@ -4,8 +4,8 @@ import Posts from './Posts.js';
 
 const mapStateToProps = (state) => {
   return {
-    myPosts: state.myPosts,
-    myComents: state.myComents
+    myPosts: state.myPosts.posts,
+    myComents: state.myComents.coments
 
   }
 }; 

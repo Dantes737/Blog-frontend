@@ -6,9 +6,6 @@ import App from './MainPage/App';
 import {Provider} from 'react-redux';
 
 
-
-let renderEntierTree = () => {
-
     ReactDOM.render(
         <React.StrictMode>
             <Provider store={store}>
@@ -18,9 +15,6 @@ let renderEntierTree = () => {
         document.getElementById('root')
     );
 
-};
 
-renderEntierTree();
 
-store.subscribe(renderEntierTree);
 

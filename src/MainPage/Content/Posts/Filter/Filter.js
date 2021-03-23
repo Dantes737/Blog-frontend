@@ -26,7 +26,8 @@ function Filter(props) {
       <button>Newest</button>
       <button>Older</button>
       <button>All</button>
-      <textarea onChange={changeTextArea} ref={newPostEl} />
+      <input onChange={changeTextArea} ref={newPostEl} ></input>
+      {/* <textarea  onChange={changeTextArea} ref={newPostEl} /> */}
       <button onClick={addMyPost} className="addBtn">Add post</button>
 
     </div>

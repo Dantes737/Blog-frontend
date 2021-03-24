@@ -23,3 +23,7 @@ display: inline;
 .imgdd{
 display: inline;
 }
+
+.selectedPage{
+  font-weight: bold;
+}

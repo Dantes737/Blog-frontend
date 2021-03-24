@@ -4,7 +4,10 @@ const SET_USERS = "SET_USERS";
 
 
 let initialState = {
-    users: []
+    users: [],
+    pageSize:4,
+    totalUsersCount:20,
+    currentPage:1
 }
 
 const usersReducer = (state = initialState, action) => {

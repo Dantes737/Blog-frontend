@@ -7,8 +7,8 @@ import userAvatar from '../../assets/images/user-avatar.png';
 
 
 class UsersPage extends React.Component {
-    constructor(props) {
-        super(props);
+
+    componentDidMount() {
         axios.get("http://localhost:5050/users/list")
             .then((response) => (response.data))
             .then((resData) => {
@@ -20,9 +20,19 @@ class UsersPage extends React.Component {
     };
 
     render() {
+
+        let pagesCount = this.props.totalUsersCount / this.props.pageSize
+        let pages = [];
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i);
+        };
+
         return <div className="userspage">
             <NavLink to="/">Go home</NavLink>
-
+            <div>Pages of users:
+   {pages.map(p=>{
+   return <span className={this.props.currentPage===p && 'selectedPage'}>{p}</span>})}
+            </div>
             {
                 this.props.users.map(u => <div key={u._id} className="user">
 

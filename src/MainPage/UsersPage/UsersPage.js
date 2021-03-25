@@ -18,11 +18,22 @@ class UsersPage extends React.Component {
                 //previous=>попередній список користувачів
                 //results=>даний список користувачів
                 //next=>наступний список
-                // console.log(resData.results);
+                // console.log(resData.totalCount);
                 this.props.setUsers(resData.results)
+                this.props.setTotalUsersCount(resData.totalCount)
+
             })
 
     };
+    onPageChanged=(clickedPage)=>{
+        this.props.setCurrentPage(clickedPage);
+        axios.get(`http://localhost:5050/users/list?page=${clickedPage}&limit=${this.props.pageSize}`)
+            .then((response) => (response.data))
+            .then((resData) => {
+                this.props.setUsers(resData.results)
+            });
+    };
+
 
     render() {
 
@@ -36,7 +47,14 @@ class UsersPage extends React.Component {
             <NavLink to="/">Go home</NavLink>
             <div>Pages of users:
    {pages.map(p => {
-                return <span className={this.props.currentPage === p && 'selectedPage'}>{p}</span>
+                return <span
+                onClick={()=>{this.onPageChanged(p)}}
+                    // className={this.props.currentPage === p && 'selectedPage'}
+                    className={this.props.currentPage === p ? 'selectedPage':'notSelectedPage'}
+
+                    >
+                    {p}
+                </span>
             })}
             </div>
             {
@@ -49,9 +67,9 @@ class UsersPage extends React.Component {
 
                     <div>
                         {u.followed ?
-                            <button onClick={() => { this.props.unfollow(u._id) }}>Unfollow</button>
+                            <button onClick={() => { this.props.unfollow(u._id)}}>Unfollow</button>
                             :
-                            <button onClick={() => { this.props.follow(u._id) }}>Follow</button>}
+                            <button onClick={() => { this.props.follow(u._id)}}>Follow</button>}
                     </div>
                 </div>)
             }

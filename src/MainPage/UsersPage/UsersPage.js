@@ -16,7 +16,7 @@ let UsersPage = (props) => {
     return <div className="userspage">
         <NavLink to="/">Go home</NavLink>
         <div>Pages of users:
-   {pages.map(p => {
+        {pages.map(p => {
             return <span
                 onClick={() => { props.onPageChanged(p) }}
                 // className={props.currentPage === p && 'selectedPage'}

@@ -3,8 +3,6 @@ import { followAC,toggleIsFetchingAC, setUsersTotalCountAC, setUsersAC, setCurre
 import * as axios from 'axios';
 import React from 'react';
 import UsersPage from './UsersPage.js';
-import Preloader from '../../Preloader/Preloader';
-
 
 
 class UsersApiComp extends React.Component {
@@ -41,10 +39,7 @@ class UsersApiComp extends React.Component {
 
 
   render() {
-    return <>
-    {this.props.isFetching ?<Preloader/>:null}
-    
-      <UsersPage
+    return <UsersPage
         pageSize={this.props.pageSize}
         totalUsersCount={this.props.totalUsersCount}
         currentPage={this.props.currentPage}
@@ -54,7 +49,6 @@ class UsersApiComp extends React.Component {
         unfollow={this.props.unfollow}
         isFetching={this.props.isFetching}
       />
-    </>
   }
 }
 

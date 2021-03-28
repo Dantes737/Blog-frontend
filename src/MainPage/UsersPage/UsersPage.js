@@ -5,7 +5,6 @@ import userAvatar from '../../assets/images/user-avatar.png';
 import Preloader from '../../Preloader/Preloader';
 
 
-
 let UsersPage = (props) => {
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -34,8 +33,9 @@ let UsersPage = (props) => {
             <div>
                 {
                     props.users.map(u => <div key={u._id} className="user">
-
-                        <div className="imgdd" ><img className="uIMG" src={u.avatarIMG != null ? u.avatarIMG : userAvatar} alt="User avatar" /></div>
+                        <NavLink to="/profile">
+                            <div className="imgdd" ><img className="uIMG" src={u.avatarIMG != null ? u.avatarIMG : userAvatar} alt="User avatar" /></div>
+                        </NavLink>
                         <div className="nickDD" >{u.nick} </div>
                         <div className="nickDD" > ID:{u._id}</div>
                         <div className="nickDD" > Email:{u.email}</div>

@@ -6,6 +6,10 @@
           border-radius: 5px;
         height: 700px;;
        background-color: #c2bdce78;
-
-
+}
+.userFoto{
+  width: 15%;
+}
+.userInfo{
+  display: inline-block;
 }

@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router, Route
 } from "react-router-dom";
 import IndexB from './Content/IndexB';
-import UserProfile from './Content/UserProfile/UserProfile';
+import ProfileConteiner from './Content/UserProfile/ProfileContainer';
 import UPanelContainer from './UsersPage/UPageContainer.js';
 
 import './App.css';
@@ -16,7 +16,7 @@ function MyApp() {
       <MainHeader  />
   
         <Route exact path="/" render={()=><IndexB/>} />
-        <Route path="/profile" component={UserProfile} />
+        <Route path="/profile" component={ProfileConteiner} />
         <Route exact path="/users-page" render={()=><UPanelContainer/>} />
 
       </Router>

@@ -33,7 +33,7 @@ let UsersPage = (props) => {
             <div>
                 {
                     props.users.map(u => <div key={u._id} className="user">
-                        <NavLink to="/profile">
+                        <NavLink to={`/profile/${u._id}`}>
                             <div className="imgdd" ><img className="uIMG" src={u.avatarIMG != null ? u.avatarIMG : userAvatar} alt="User avatar" /></div>
                         </NavLink>
                         <div className="nickDD" >{u.nick} </div>

@@ -8,7 +8,6 @@ function FirstBar() {
     <div className="firstbar">
   Current User
     <NavLink to="/profile">Go to my profile</NavLink> 
- 
     </div>
   );
 }

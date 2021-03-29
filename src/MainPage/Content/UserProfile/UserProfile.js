@@ -4,7 +4,7 @@ import Preloader from '../../../Preloader/Preloader';
 import './UserProfile.css';
 
 function UserProfile(props) {
-    console.log(props.profile);
+    // console.log(props.profile);
     //if(props.profile==null) теж саме
     if (!props.profile) {
         return <Preloader />

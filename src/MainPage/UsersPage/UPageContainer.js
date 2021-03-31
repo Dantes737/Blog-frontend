@@ -1,17 +1,15 @@
 import { connect } from 'react-redux';
 import { follow, toggleIsFetching, setUsersTotalCount, setUsers, setCurrentPage, unfollow } from '../../redux/users-reducer'
-import * as axios from 'axios';
 import React from 'react';
 import UsersPage from './UsersPage.js';
-
+import {usersAPI} from '../../api/api.js'
 
 class UsersApiComp extends React.Component {
   //   let a=  `http://localhost:5050/users/list?page=3&limit=3`
 
   componentDidMount() {
     this.props.toggleIsFetching(true);
-    axios.get(`http://localhost:5050/profiles/list?page=${this.props.currentPage}&limit=${this.props.pageSize}`)
-      .then((response) => (response.data))
+    usersAPI.getUsers(this.props.currentPage,this.props.pageSize)
       .then((resData) => {
         // console.log('! BackEnd-Data !');
         // приходить обєкт з трьома внутрішніми обєктами
@@ -29,8 +27,7 @@ class UsersApiComp extends React.Component {
   onPageChanged = (clickedPage) => {
     this.props.setCurrentPage(clickedPage);
     this.props.toggleIsFetching(true);
-    axios.get(`http://localhost:5050/profiles/list?page=${clickedPage}&limit=${this.props.pageSize}`)
-      .then((response) => (response.data))
+    usersAPI.getUsers(clickedPage,this.props.pageSize)
       .then((resData) => {
         this.props.toggleIsFetching(false);
         this.props.setUsers(resData.results)

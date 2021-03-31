@@ -1,18 +1,12 @@
 import React from 'react'
 import FirstBar from './FirstBar.js';
-import * as axios from 'axios';
+import {usersAPI} from '../../../../api/api.js'
 import { connect } from 'react-redux';
 import { setAuthUserData} from '../../../../redux/auth-reducer';
 
 class FirstBarConteiner extends React.Component {
   componentDidMount() {
-    axios.post('http://localhost:5050/users/login',
-        {
-          email: 'test1.8@gmail.com',
-          password: 'test1'
-        })
-      .then((res) => res.data)
-      .then((data) => {
+    usersAPI.getLogin().then((data) => {
      if (data.result==="Authorized") {
        console.log(data);
       let {userId,email,nick}=data.user.authData

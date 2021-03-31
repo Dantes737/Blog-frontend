@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 import './UsersPage.css';
 import userAvatar from '../../assets/images/user-avatar.png';
 import Preloader from '../../Preloader/Preloader';
-import * as axios from 'axios';
+import { usersAPI } from '../../api/api.js'
+
 
 
 let UsersPage = (props) => {
@@ -43,29 +44,21 @@ let UsersPage = (props) => {
                         <div>
                             {u.followed ?
                                 <button onClick={() => {
-                                    axios.post('http://localhost:5050/profiles/unfollow',
-                                    {userId: u._id})
-                                  .then((res) => res.data)
-                                  .then((data) =>{if(data.success===true){
-                                    props.unfollow(u._id)
-                                }})
-                            //     axios.post('http://localhost:5050/profiles/follow',
-                            //     {userId: u._id},{headers:{
-                            //         "MY-TOKEN-KEY":""
-                            //     }})
-                            //   .then((res) => res.data)
-                            //   .then((data) =>{if(data.success===true){
-                            //       props.follow(u._id)
-                            //   }})
-                                    }}>Unfollow</button>
+                                    usersAPI.getUnfollowed(u._id)
+                                        .then((data) => {
+                                            if (data.success === true) {
+                                                props.unfollow(u._id)
+                                            }
+                                        })
+                                }}>Unfollow</button>
                                 :
                                 <button onClick={() => {
-                                    axios.post('http://localhost:5050/profiles/follow',
-                                    {userId: u._id})
-                                  .then((res) => res.data)
-                                  .then((data) =>{if(data.success===true){
-                                      props.follow(u._id)
-                                  }})
+                                    usersAPI.getFollowed(u._id)
+                                        .then((data) => {
+                                            if (data.success === true) {
+                                                props.follow(u._id)
+                                            }
+                                        })
                                 }}>Follow</button>}
                         </div>
                     </div>)

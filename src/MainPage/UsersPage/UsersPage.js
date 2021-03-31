@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 import './UsersPage.css';
 import userAvatar from '../../assets/images/user-avatar.png';
 import Preloader from '../../Preloader/Preloader';
+import * as axios from 'axios';
 
 
 let UsersPage = (props) => {
-
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
@@ -42,9 +42,31 @@ let UsersPage = (props) => {
 
                         <div>
                             {u.followed ?
-                                <button onClick={() => { props.unfollow(u._id) }}>Unfollow</button>
+                                <button onClick={() => {
+                                    axios.post('http://localhost:5050/profiles/unfollow',
+                                    {userId: u._id})
+                                  .then((res) => res.data)
+                                  .then((data) =>{if(data.success===true){
+                                    props.unfollow(u._id)
+                                }})
+                            //     axios.post('http://localhost:5050/profiles/follow',
+                            //     {userId: u._id},{headers:{
+                            //         "MY-TOKEN-KEY":""
+                            //     }})
+                            //   .then((res) => res.data)
+                            //   .then((data) =>{if(data.success===true){
+                            //       props.follow(u._id)
+                            //   }})
+                                    }}>Unfollow</button>
                                 :
-                                <button onClick={() => { props.follow(u._id) }}>Follow</button>}
+                                <button onClick={() => {
+                                    axios.post('http://localhost:5050/profiles/follow',
+                                    {userId: u._id})
+                                  .then((res) => res.data)
+                                  .then((data) =>{if(data.success===true){
+                                      props.follow(u._id)
+                                  }})
+                                }}>Follow</button>}
                         </div>
                     </div>)
                 }

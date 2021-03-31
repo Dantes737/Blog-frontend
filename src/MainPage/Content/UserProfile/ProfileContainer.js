@@ -11,7 +11,7 @@ class ProfileConteiner extends React.Component {
         if (!userId) {
             userId = '605d04e17531eb1a306e0b18'
         }
-        axios.get(`http://localhost:5050/users/u-profile/${userId}`)
+        axios.get(`http://localhost:5050/profiles/u-profile/${userId}`)
             .then((response) => (response.data))
             .then((resData) => {
                 this.props.setUserProfile(resData.user);

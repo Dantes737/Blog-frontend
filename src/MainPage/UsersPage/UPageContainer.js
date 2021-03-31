@@ -10,7 +10,7 @@ class UsersApiComp extends React.Component {
 
   componentDidMount() {
     this.props.toggleIsFetching(true);
-    axios.get(`http://localhost:5050/users/list?page=${this.props.currentPage}&limit=${this.props.pageSize}`)
+    axios.get(`http://localhost:5050/profiles/list?page=${this.props.currentPage}&limit=${this.props.pageSize}`)
       .then((response) => (response.data))
       .then((resData) => {
         // console.log('! BackEnd-Data !');
@@ -29,7 +29,7 @@ class UsersApiComp extends React.Component {
   onPageChanged = (clickedPage) => {
     this.props.setCurrentPage(clickedPage);
     this.props.toggleIsFetching(true);
-    axios.get(`http://localhost:5050/users/list?page=${clickedPage}&limit=${this.props.pageSize}`)
+    axios.get(`http://localhost:5050/profiles/list?page=${clickedPage}&limit=${this.props.pageSize}`)
       .then((response) => (response.data))
       .then((resData) => {
         this.props.toggleIsFetching(false);

@@ -4,14 +4,13 @@ import { NavLink } from 'react-router-dom';
 
 
 
-function App() {
+function App(props) {
   return (
     <div className="AppHeader">
       <span className="logo">Just Blog</span>
       <input className="searchInp" placeholder="Search..." ></input>
 
       <NavLink to="/users-page">Go to Users </NavLink>
-      <NavLink to="/login"> Login</NavLink>
       <button className="Lbtn" >LogOut</button>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import FirstBar from './FirstBar/FirstBar';
+import FirstBarConteiner from './FirstBar/FirstBarConteiner';
 import SecondBContainer from './SecondBar/SecondBContainer';
 
 import './SideBar.css';
@@ -7,7 +7,7 @@ import './SideBar.css';
 function SideBar() {
   return (
     <div className="sidebar">
-  <FirstBar/>
+  <FirstBarConteiner/>
    <SecondBContainer />
 
      

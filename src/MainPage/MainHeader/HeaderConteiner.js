@@ -1,12 +1,15 @@
 import React from 'react'
 import AppHeader from './AppHeader.js';
+import { connect } from 'react-redux';
 
-function HeaderConteiner() {
-  return (
-    <div className="headerDiv">
-<AppHeader/>
-    </div>
-  );
+class HeaderConteiner extends React.Component {
+ 
+  render() {
+    return <AppHeader {...this.props} />
+  }
 }
 
-export default HeaderConteiner;
+const mapStateToProps=(state)=>({
+})
+
+export default connect(mapStateToProps,null)(HeaderConteiner);

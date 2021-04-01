@@ -20,6 +20,7 @@ class UsersApiComp extends React.Component {
       pageSize={this.props.pageSize}
       totalUsersCount={this.props.totalUsersCount}
       currentPage={this.props.currentPage}
+      setCurrentPage={this.props.setCurrentPage}
       users={this.props.users}
       onPageChanged={this.onPageChanged}
       follow={this.props.follow}

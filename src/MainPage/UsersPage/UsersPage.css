@@ -27,6 +27,7 @@ display: inline;
 .selectedPage{
   font-weight: bold;
   cursor: pointer;
+  color: black;
 }
 .notSelectedPage{
   cursor: pointer;

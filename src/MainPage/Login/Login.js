@@ -1,10 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Login.css';
 
-function Login() {
+function Login(props) {
   return (
     <div className="loginPage">
-Logi page
+      <NavLink to="/">Go home</NavLink>
+Login page
     </div>
   );
 }

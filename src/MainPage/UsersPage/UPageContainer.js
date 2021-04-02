@@ -27,6 +27,7 @@ class UsersApiComp extends React.Component {
       unfollow={this.props.unfollow}
       isFetching={this.props.isFetching}
       followingInProgres={this.props.followingInProgres}
+      isAuth={this.props.isAuth}
     />
   }
 }
@@ -36,6 +37,7 @@ class UsersApiComp extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    isAuth: state.auth.isAuth,
     users: state.myUsers.users,
     pageSize: state.myUsers.pageSize,
     totalUsersCount: state.myUsers.totalUsersCount,

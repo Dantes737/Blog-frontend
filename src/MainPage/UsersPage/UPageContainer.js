@@ -3,6 +3,7 @@ import { getUsers, follow, toggleFollowingProgres, setCurrentPage, unfollow } fr
 import React from 'react';
 import UsersPage from './UsersPage.js';
 import { WithAuthRedirect } from '../../hoc/withAuthRedirect.js';
+import { compose } from 'redux';
 
 class UsersApiComp extends React.Component {
   //   let a=  `http://localhost:5050/users/list?page=3&limit=3`
@@ -32,7 +33,7 @@ class UsersApiComp extends React.Component {
   }
 }
 
-let AuthRedirectComponent =WithAuthRedirect(UsersApiComp) ;
+
 
 const mapStateToProps = (state) => {
   return {
@@ -45,37 +46,9 @@ const mapStateToProps = (state) => {
   }
 };
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     follow: (userID) => {
-//       dispatch(followAC(userID))
-//     },
-//     unfollow: (userID) => {
-//       dispatch(unfollowAC(userID))
-//     },
-//     setUsers: (users) => {
-//       dispatch(setUsersAC(users))
-//     },
-//     setCurrentPage: (pageNumb) => {
-//       dispatch(setCurrentPageAC(pageNumb))
-//     },
-//     setTotalUsersCount: (totalCount) => {
-//       dispatch(setUsersTotalCountAC(totalCount))
-//     },
-//     toggleIsFetching: (isFetching) => {
-//       dispatch(toggleIsFetchingAC(isFetching))
-//     },
-//   }
-// };
 
-const UPanelContainer = connect(mapStateToProps,
-  {
-    follow, getUsers,
-    unfollow,
-    setCurrentPage,
-    toggleFollowingProgres
-  }
-)(AuthRedirectComponent);
+export default compose(
+  WithAuthRedirect,
+  connect(mapStateToProps, { follow, getUsers, unfollow, setCurrentPage, toggleFollowingProgres })
+)(UsersApiComp)
 
-
-export default UPanelContainer;

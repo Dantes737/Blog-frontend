@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import './UsersPage.css';
 import userAvatar from '../../assets/images/user-avatar.png';
 import Preloader from '../../Preloader/Preloader';
@@ -12,7 +12,7 @@ let UsersPage = (props) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     };
-    if (props.isAuth === false) return <Redirect to={"/login"} />
+    
     return <div className="userspage">
         <NavLink to="/">Go home</NavLink>
         <div>Pages of users:

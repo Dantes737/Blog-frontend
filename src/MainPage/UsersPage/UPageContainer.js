@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
-import { getUsers,follow, toggleFollowingProgres, setCurrentPage, unfollow } from '../../redux/users-reducer'
+import { getUsers, follow, toggleFollowingProgres, setCurrentPage, unfollow } from '../../redux/users-reducer'
 import React from 'react';
 import UsersPage from './UsersPage.js';
+import { WithAuthRedirect } from '../../hoc/withAuthRedirect.js';
 
 class UsersApiComp extends React.Component {
   //   let a=  `http://localhost:5050/users/list?page=3&limit=3`
@@ -27,23 +28,20 @@ class UsersApiComp extends React.Component {
       unfollow={this.props.unfollow}
       isFetching={this.props.isFetching}
       followingInProgres={this.props.followingInProgres}
-      isAuth={this.props.isAuth}
     />
   }
 }
 
-
-
+let AuthRedirectComponent =WithAuthRedirect(UsersApiComp) ;
 
 const mapStateToProps = (state) => {
   return {
-    isAuth: state.auth.isAuth,
     users: state.myUsers.users,
     pageSize: state.myUsers.pageSize,
     totalUsersCount: state.myUsers.totalUsersCount,
     currentPage: state.myUsers.currentPage,
     isFetching: state.myUsers.isFetching,
-    followingInProgres:state.myUsers.followingInProgres
+    followingInProgres: state.myUsers.followingInProgres
   }
 };
 
@@ -72,12 +70,12 @@ const mapStateToProps = (state) => {
 
 const UPanelContainer = connect(mapStateToProps,
   {
-    follow,getUsers,
+    follow, getUsers,
     unfollow,
     setCurrentPage,
     toggleFollowingProgres
   }
-)(UsersApiComp);
+)(AuthRedirectComponent);
 
 
 export default UPanelContainer;

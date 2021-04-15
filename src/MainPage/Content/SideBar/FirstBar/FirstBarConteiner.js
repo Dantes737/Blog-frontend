@@ -5,7 +5,11 @@ import { login} from '../../../../redux/auth-reducer';
 
 class FirstBarConteiner extends React.Component {
   componentDidMount() {
-this.props.login()
+
+///===>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+this.props.login();
+
+
   };
   render() {
     return <FirstBar {...this.props} />

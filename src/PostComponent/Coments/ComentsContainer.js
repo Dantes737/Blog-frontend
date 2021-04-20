@@ -1,11 +1,8 @@
 // import React from 'react';
 import { connect } from 'react-redux';
-import Coments from './Coments.jsx';
+import Coments from './Coments.js';
 import { addComentActionCreator } from "../../redux/coments-reducer";
 
-// let addPostActionCreator=(textInp)=>{
-//   return{ type: "ADD-POST", text: textInp }
-// }
 
 const mapDispatchToProps = (dispatch) => {
   return {

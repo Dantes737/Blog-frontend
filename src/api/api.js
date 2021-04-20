@@ -55,16 +55,15 @@ export const profileAPI = {
 
 export const usersAPI = {
     getLogin() {
-        return instanse.post('users/login',
+        return instanse.post('user-auth/login',
             { email: 'test1.8@gmail.com', password: 'test1' })
             .then((res) => res.data)
     }
 };
 
-
 export const authAPI = {
     me() {
-        return instanse.post('users/login',
+        return instanse.post('user-auth/login',
             { email: 'test1.8@gmail.com', password: 'test1' })
             .then((res) => res.data)
     }

@@ -1,37 +1,33 @@
 import React from 'react';
+import { Field, reduxForm } from 'redux-form';
 import './Filter.css';
-
-// let addPostActionCreator=(textInp)=>{
-//   return{ type: "ADD-POST", text: textInp }
-// }
 
 
 function Filter(props) {
-  let newPostEl = React.createRef();
 
-  let addMyPost = function () {
-    let textInp = newPostEl.current.value;
-    props.addUserPost(textInp)
-    newPostEl.current.value = ''
+  let addNewPost = (values)=> {
+    props.addUserPost(values.newPostBody)
   };
 
-  //=========================================
-  let changeTextArea = () => {
-    let text = newPostEl.current.value;
-    console.log(text);
-  };
-  //=============================================
   return (
     <div className="filt">
       <button>Newest</button>
       <button>Older</button>
       <button>All</button>
-      <input onChange={changeTextArea} ref={newPostEl} ></input>
-      {/* <textarea  onChange={changeTextArea} ref={newPostEl} /> */}
-      <button onClick={addMyPost} className="addBtn">Add post</button>
-
+      <AddPostReduxForm onSubmit={addNewPost}/>
     </div>
   );
-}
+};
+
+const AddPostForm=(props)=>{
+  return(
+    <form onSubmit={props.handleSubmit}>
+      <Field component="input" type="text" name="newPostBody" placeholder="Write about something" />
+      <button className="addBtn">Add post</button>
+    </form>
+  )
+};
+const AddPostReduxForm=reduxForm({form:'myAddCommentForm'})(AddPostForm)
+
 
 export default Filter;

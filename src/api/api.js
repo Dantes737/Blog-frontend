@@ -11,7 +11,16 @@ const instanse = axios.create({
 //     baseURL:'http://localhost:5050/',
 //     headers:{'API-KEY':'JSSJD-SDJSD-SDNSD-SNDSD'}
 // })
-export const usersAPI = {
+export const profileAPI = {
+    getUserStatus(userId) {
+        return instanse.get(`profiles/u-profile/${userId}`)
+    },
+    updateStatus(user) {
+        return instanse.put('profiles/status', {
+            status: user.status,
+            userId: user.id
+        })
+    },
     getUsers(currentPage, pageSize) {
         return instanse.get(`profiles/list?page=${currentPage}&limit=${pageSize}`)
             .then((response) => (response.data))
@@ -43,6 +52,15 @@ export const usersAPI = {
             .then((res) => res.data)
     }
 };
+
+export const usersAPI = {
+    getLogin() {
+        return instanse.post('users/login',
+            { email: 'test1.8@gmail.com', password: 'test1' })
+            .then((res) => res.data)
+    }
+};
+
 
 export const authAPI = {
     me() {

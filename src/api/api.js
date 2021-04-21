@@ -53,18 +53,21 @@ export const profileAPI = {
     }
 };
 
-export const usersAPI = {
-    getLogin() {
-        return instanse.post('user-auth/login',
-            { email: 'test1.8@gmail.com', password: 'test1' })
-            .then((res) => res.data)
-    }
-};
+// export const usersAPI = {
+//     getLogin() {
+//         return instanse.post('user-auth/login',
+//             { email: 'test1.8@gmail.com', password: 'test1' })
+//             .then((res) => res.data)
+//     }
+// };
 
 export const authAPI = {
-    me() {
+    myLogin(email, password) {
         return instanse.post('user-auth/login',
-            { email: 'test1.8@gmail.com', password: 'test1' })
-            .then((res) => res.data)
-    }
+            { email, password }).then((res)=>res.data)
+    },
+    // logOut() {
+    //     return instanse.delete('user-auth/login')
+    //         .then((res) => res.data)
+    // }
 };

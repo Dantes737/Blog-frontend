@@ -1,16 +1,10 @@
 import React from 'react'
 import FirstBar from './FirstBar.js';
 import { connect } from 'react-redux';
-import { login} from '../../../../redux/auth-reducer';
+import { LOGout } from '../../../../redux/auth-reducer.js';
 
 class FirstBarConteiner extends React.Component {
-  componentDidMount() {
-
-///===>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// this.props.login();
-
-
-  };
+ 
   render() {
     return <FirstBar {...this.props} />
   }
@@ -22,4 +16,4 @@ const mapStateToProps=(state)=>({
   id:state.auth.userId,
 })
 
-export default connect(mapStateToProps,{login})(FirstBarConteiner);
+export default connect(mapStateToProps,{LOGout})(FirstBarConteiner);

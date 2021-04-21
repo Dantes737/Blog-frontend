@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink} from 'react-router-dom';
 import './UsersPage.css';
 import userAvatar from '../../assets/images/user-avatar.png';
-import Preloader from '../../Preloader/Preloader';
+import Preloader from '../../components/Preloader/Preloader.js';
 
 
 

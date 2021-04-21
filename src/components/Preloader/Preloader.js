@@ -1,5 +1,5 @@
 import React from 'react';
-import catLoader  from '../assets/images/cat-loader.gif'
+import catLoader  from '../../assets/images/cat-loader.gif'
 import './Preloader.css'
 
 let Preloader=()=>{

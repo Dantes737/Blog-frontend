@@ -3,9 +3,8 @@ import UserComent from "./UserComent/UserComent";
 import "./Coments.css";
 import { Field, reduxForm } from 'redux-form';
 
-
 function Coments(props) {
-    
+
     let addNewComment = (values) => {
         props.addUserComent(values.newComentBody)
     };
@@ -23,7 +22,11 @@ const AddComentForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div className="textInp">
-                <Field component="textarea" name="newComentBody" placeholder="Enter your comment" />
+                <Field
+                 component="textarea" 
+                 name="newComentBody" 
+                 placeholder="Enter your comment" 
+                 />
             </div>
             <button className="addComBtn">Add  coment</button>
         </form>

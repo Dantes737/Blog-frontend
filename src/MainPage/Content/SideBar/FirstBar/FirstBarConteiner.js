@@ -7,7 +7,7 @@ class FirstBarConteiner extends React.Component {
   componentDidMount() {
 
 ///===>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-this.props.login();
+// this.props.login();
 
 
   };

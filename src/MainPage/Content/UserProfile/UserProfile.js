@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink} from 'react-router-dom';
-import Preloader from '../../../Preloader/Preloader';
+import Preloader from '../../../components/Preloader/Preloader.js';
 import './UserProfile.css';
 import ProfileStatus from './ProfileStatus.js'
 

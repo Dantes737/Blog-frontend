@@ -17,7 +17,7 @@ function UserProfile(props) {
              <div className="userInfo">
              <div>Нікнейм: {props.profile.nick}</div>
              <div>Місто: {props.profile.city}</div>
-             <ProfileStatus userId={props.profile._id} status={props.status} updateStatus={props.updateStatus}/>
+             <ProfileStatus nick={props.profile.nick} status={props.status} updateStatus={props.updateStatus}/>
              </div>
             </div>
         )

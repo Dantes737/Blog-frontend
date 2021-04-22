@@ -9,7 +9,7 @@ let initialState = {
     email: null,
     nick: null,
     access_token: null,
-    isAuth: true
+    isAuth: false
 }
 
 const authReducer = (state = initialState, action) => {

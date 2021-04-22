@@ -28,16 +28,17 @@ const profileReducer = (state = initialState, action) => {
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 export const setStatus = (status) => ({ type: SET_STATUS, status });
 
-export const getUserProfile = (userId) => (dispatch) => {
-    profileAPI.getProfile(userId)
+export const getUserProfile = (nick) => (dispatch) => {
+    profileAPI.getProfile(nick)
         .then((resData) => {
             dispatch(setUserProfile(resData.user));
         })
 };
-export const getStatus = (userId) => (dispatch) => {
-    profileAPI.getUserStatus(userId)
+export const getStatus = (nick) => (dispatch) => {
+    profileAPI.getUserStatus(nick)
         .then((resData) => {
-            dispatch(setStatus(resData.data.user.status));
+            
+            dispatch(setStatus(resData.user.status));
         })
 };
 export const updateStatus = (user) => (dispatch) => {

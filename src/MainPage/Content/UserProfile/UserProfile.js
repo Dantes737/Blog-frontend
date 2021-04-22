@@ -5,8 +5,6 @@ import './UserProfile.css';
 import ProfileStatus from './ProfileStatus.js'
 
 function UserProfile(props) {
-    // console.log(props.profile);
-    //if(props.profile==null) теж саме
     if (!props.profile) {
         return <Preloader/>
     }

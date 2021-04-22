@@ -4,7 +4,6 @@ import { authAPI } from '../api/api.js';
 const SET_USER_DATA = "SET_USER_DATA";
 
 
-
 let initialState = {
     userId: null,
     email: null,
@@ -29,16 +28,6 @@ const authReducer = (state = initialState, action) => {
 
 export const setAuthUserData = (userId, email, nick, access_token, isAuth) => ({ type: SET_USER_DATA, payload: { userId, email, nick, access_token, isAuth } });
 
-// export const login = () => (dispatch) => {
-//     authAPI.me().then((data) => {
-//         if (data.result === "Authorized") {
-//             console.log(data);
-//             let { userId, email, nick } = data.user.authData
-//             dispatch(setAuthUserData(data.user.authData.nick))
-//             dispatch(setAuthUserData(userId, email, nick))
-//         }
-//     })
-// };
 export const login = (email, password) => (dispatch) => {
     authAPI.myLogin(email, password).then((data) => {
         if (data.result && data.result === "Authorized") {

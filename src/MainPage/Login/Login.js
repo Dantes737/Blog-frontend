@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { NavLink, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import { Element} from '../../components/FormsControls/FormsControls';
 import { required } from '../../utils/validators';
@@ -36,7 +36,6 @@ const Login = (props) => {
     return <Redirect to={"/"}/>
   }
   return <div className="loginPage">
-    <NavLink to="/">Go home</NavLink>
     <h1> LOGIN </h1>
     <LoginReduxForm onSubmit={onSubmit} />
   </div>

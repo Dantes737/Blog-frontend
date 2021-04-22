@@ -47,9 +47,8 @@ export const login = (email, password) => (dispatch) => {
             dispatch(setAuthUserData(userId, email, nick, access_token, true))
         }
     }).catch((e) => {
-        console.log("Error");
-        let action = stopSubmit("login", { email: "Email or password is wrong !" });
-        dispatch(action);
+        console.error(e.message)
+        dispatch(stopSubmit("login", { _error: "Email or password is wrong !" }));
     })
 };
 

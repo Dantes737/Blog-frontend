@@ -9,7 +9,7 @@ export const WithAuthRedirect = (Component) => {
     class RedirectComponent extends React.Component {
         render() {
             // АБО ====>>>> if (this.props.isAuth===false) return <Redirect to="/login"/>
-            if (!this.props.isAuth) return <Redirect to="/login" />
+            if (!this.props.isAuth) return <Redirect to="/auth" />
             /// {...props} деструктуризація пропсів
             ///перекидування іх наступній компоненті
             return <Component {...this.props} />

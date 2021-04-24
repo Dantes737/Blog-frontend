@@ -2,31 +2,32 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
-import { Element} from '../../components/FormsControls/FormsControls';
-import { required } from '../../utils/validators';
-import './Login.css';
-import '../../components/FormsControls/FormsControls.css';
-import { login } from '../../redux/auth-reducer.js';
+import { Element} from '../../../components/FormsControls/FormsControls';
+import { required } from '../../../utils/validators';
+import './SignIn.css';
+import '../../../components/FormsControls/FormsControls.css';
+import { login } from '../../../redux/auth-reducer.js';
 
 const MyInput=Element("input");
 
-const LoginForm = (props) => {
+const SignInForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
+      <div><Field component={MyInput} validate={[required]} type="text" name={"nick"} placeholder={"Nick"} /></div>
       <div><Field component={MyInput} validate={[required]} type="text" name={"email"} placeholder={"Email"} /></div>
       <div><Field component={MyInput} validate={[required]} type="text" name={"password"} placeholder={"Password"} /></div>
       {/* <div>Remember me <Field component={MyInput} type="checkbox" name={"rememberMe"} /></div> */}
       {props.error&&<div className={"formSummaryError"}>{props.error}</div>}
-      <div ><button>Login</button></div>
+      <div ><button>Sign In</button></div>
     </form>
   )};
 
-const LoginReduxForm=reduxForm({
+const SignInReduxForm=reduxForm({
   //a unique name for form
-  form:'login'
-})(LoginForm)
+  form:'signIn'
+})(SignInForm)
 
-const Login = (props) => {
+const SignIn = (props) => {
   const onSubmit=(formData)=>{
     console.log(formData);
     props.login(formData.email,formData.password)
@@ -35,9 +36,10 @@ const Login = (props) => {
   if (props.isAuth) {
     return <Redirect to={"/"}/>
   }
-  return <div className="loginPage">
-    <h1> LOGIN </h1>
-    <LoginReduxForm onSubmit={onSubmit} />
+  return <div className="signinPage">
+    <h1> SIGN IN </h1>
+    <SignInReduxForm onSubmit={onSubmit} />
+    <div>Or <span className="signinSpan" onClick={props.changeStatus}>LogIn</span> if you already have account</div>
   </div>
 };
 
@@ -45,4 +47,4 @@ const mapStateToProps=(state)=>({
 isAuth:state.auth.isAuth
 })
 
-export default connect(mapStateToProps,{login})(Login);
+export default connect(mapStateToProps,{login})(SignIn);

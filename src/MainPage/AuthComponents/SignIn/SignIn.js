@@ -6,7 +6,7 @@ import { Element} from '../../../components/FormsControls/FormsControls';
 import { required } from '../../../utils/validators';
 import './SignIn.css';
 import '../../../components/FormsControls/FormsControls.css';
-import { login } from '../../../redux/auth-reducer.js';
+import { signInUser } from '../../../redux/auth-reducer.js';
 
 const MyInput=Element("input");
 
@@ -16,7 +16,6 @@ const SignInForm = (props) => {
       <div><Field component={MyInput} validate={[required]} type="text" name={"nick"} placeholder={"Nick"} /></div>
       <div><Field component={MyInput} validate={[required]} type="text" name={"email"} placeholder={"Email"} /></div>
       <div><Field component={MyInput} validate={[required]} type="text" name={"password"} placeholder={"Password"} /></div>
-      {/* <div>Remember me <Field component={MyInput} type="checkbox" name={"rememberMe"} /></div> */}
       {props.error&&<div className={"formSummaryError"}>{props.error}</div>}
       <div ><button>Sign In</button></div>
     </form>
@@ -30,7 +29,8 @@ const SignInReduxForm=reduxForm({
 const SignIn = (props) => {
   const onSubmit=(formData)=>{
     console.log(formData);
-    props.login(formData.email,formData.password)
+    props.signInUser(
+      formData.nick,formData.email,formData.password)
   };
 
   if (props.isAuth) {
@@ -47,4 +47,4 @@ const mapStateToProps=(state)=>({
 isAuth:state.auth.isAuth
 })
 
-export default connect(mapStateToProps,{login})(SignIn);
+export default connect(mapStateToProps,{signInUser})(SignIn);

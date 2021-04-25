@@ -12,18 +12,21 @@ const instanse = axios.create({
 //     headers:{'API-KEY':'JSSJD-SDJSD-SDNSD-SNDSD'}
 // })
 export const profileAPI = {
-    getUserStatus(nick) {
-        return instanse.get(`profiles/u-profile/${nick}`)
-        .then((response) => (response.data))
+    getUserStatus(userId) {
+        console.log(userId);
+        return instanse.get(`profiles/u-profile/${userId}`)
+            .then((response) => (response.data))
     },
-    getProfile(nick) {
-        return instanse.get(`profiles/u-profile/${nick}`)
+    getProfile(userId) {
+        console.log(userId);
+        return instanse.get(`profiles/u-profile/${userId}`)
             .then((response) => (response.data))
     },
     updateStatus(user) {
+        console.log(user.userId);
         return instanse.put('profiles/status', {
             status: user.status,
-            userNick: user.nick
+            userId: user.userId
         })
     },
     getUsers(currentPage, pageSize) {
@@ -61,11 +64,14 @@ export const profileAPI = {
 //             .then((res) => res.data)
 //     }
 // };
-
 export const authAPI = {
+    mySignIn(nick, email, password) {
+        return instanse.post('user-auth/signup',
+            { nick, email, password }).then((res) => res.data)
+    },
     myLogin(email, password) {
         return instanse.post('user-auth/login',
-            { email, password }).then((res)=>res.data)
+            { email, password }).then((res) => res.data)
     },
     // logOut() {
     //     return instanse.delete('user-auth/login')

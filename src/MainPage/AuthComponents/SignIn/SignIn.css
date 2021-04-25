@@ -2,3 +2,6 @@
     cursor: pointer;
     font-weight: 700;
 }
+.signinSpan:hover {
+    color: white;
+  }

@@ -16,7 +16,7 @@ function ProfileStatus(props) {
         setEditMode(false);
         props.updateStatus({
             status: status,
-            nick: props.nick
+            userId: props.userId
         });
     };
     const onStatusChange = (e) => {

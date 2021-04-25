@@ -12,18 +12,11 @@ const instanse = axios.create({
 //     headers:{'API-KEY':'JSSJD-SDJSD-SDNSD-SNDSD'}
 // })
 export const profileAPI = {
-    getUserStatus(userId) {
-        console.log(userId);
-        return instanse.get(`profiles/u-profile/${userId}`)
-            .then((response) => (response.data))
-    },
     getProfile(userId) {
-        console.log(userId);
         return instanse.get(`profiles/u-profile/${userId}`)
             .then((response) => (response.data))
     },
     updateStatus(user) {
-        console.log(user.userId);
         return instanse.put('profiles/status', {
             status: user.status,
             userId: user.userId

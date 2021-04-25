@@ -34,13 +34,7 @@ export const getUserProfile = (userId) => (dispatch) => {
             dispatch(setUserProfile(resData.user));
         })
 };
-export const getStatus = (userId) => (dispatch) => {
-    profileAPI.getUserStatus(userId)
-        .then((resData) => {
-            
-            dispatch(setStatus(resData.user.status));
-        })
-};
+
 export const updateStatus = (user) => (dispatch) => {
     profileAPI.updateStatus(user)
         .then((resData) => {

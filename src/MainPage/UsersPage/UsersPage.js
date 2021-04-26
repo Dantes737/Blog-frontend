@@ -12,7 +12,15 @@ const [friends, setFriends] = useState(props.profileFriends)
     useEffect(() => {
         setFriends(props.profileFriends);
     }, [props.profileFriends])
-    let areHeAFriends;
+  
+    let haveUserFriends=(user)=>{
+        if (friends&&friends!==null) {
+            return friends.find(el=>el===user)
+        } else {
+            return false
+        }
+    }
+
 
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -48,8 +56,8 @@ const [friends, setFriends] = useState(props.profileFriends)
                         <div className="nickDD" > Email:{u.email}</div>
 
                         <div>
-                            {friends&&friends!==null?areHeAFriends=friends.find(el=>el===u.nick):areHeAFriends=false}
-                            {areHeAFriends ?
+                            
+                            {haveUserFriends(u.nick) ?
                                 <button disabled={props.followingInProgres.some(nick => nick === u.nick)} onClick={() => {
                                     props.unfollow({
                                         authUserId:props.authUserId,

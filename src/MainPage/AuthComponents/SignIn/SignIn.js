@@ -34,7 +34,7 @@ const SignIn = (props) => {
   };
 
   if (props.isAuth) {
-    return <Redirect to={"/"}/>
+    return <Redirect to={"/profile"}/>
   }
   return <div className="signinPage">
     <h1> SIGN IN </h1>

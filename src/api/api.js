@@ -27,20 +27,17 @@ export const profileAPI = {
             .then((response) => (response.data))
     },
 
-    getUnfollowed(id) {
+    getUnfollowed(data) {
+        console.log(data);
         return instanse.post('profiles/unfollow',
-            { userId: id })
+        { userNick: data.nick,
+            authId:data.authUserId })
             .then((res) => res.data)
-
-        //     instanse.post('http://localhost:5050/profiles/follow',
-        //     {userId: u._id},{headers:{
-        //         "MY-TOKEN-KEY":""
-        //     }})
-        //   .then((res) => res.data)
     },
-    getFollowed(id) {
+    getFollowed(data) {
         return instanse.post('profiles/follow',
-            { userId: id })
+            { userNick: data.nick,
+            authId:data.authUserId })
             .then((res) => res.data)
     },
     getLogin() {

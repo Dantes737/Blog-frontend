@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink} from 'react-router-dom';
 import './UsersPage.css';
 import userAvatar from '../../assets/images/user-avatar.png';
@@ -7,6 +7,14 @@ import Preloader from '../../components/Preloader/Preloader.js';
 
 
 let UsersPage = (props) => {
+const [friends, setFriends] = useState(props.profileFriends)
+
+    useEffect(() => {
+        setFriends(props.profileFriends);
+    }, [props.profileFriends])
+    let areHeAFriends;
+
+
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
@@ -37,18 +45,22 @@ let UsersPage = (props) => {
                             <div className="imgdd" ><img className="uIMG" src={u.avatarIMG != null ? u.avatarIMG : userAvatar} alt="User avatar" /></div>
                         </NavLink>
                         <div className="nickDD" >{u.nick} </div>
-                        <div className="nickDD" > ID:{u._id}</div>
                         <div className="nickDD" > Email:{u.email}</div>
 
                         <div>
-                            {u.followed ?
-                                <button disabled={props.followingInProgres.some(id => id === u._id)} onClick={() => {
-                                    props.unfollow(u._id);
+                            {friends&&friends!==null?areHeAFriends=friends.find(el=>el===u.nick):areHeAFriends=false}
+                            {areHeAFriends ?
+                                <button disabled={props.followingInProgres.some(nick => nick === u.nick)} onClick={() => {
+                                    props.unfollow({
+                                        authUserId:props.authUserId,
+                                        nick:u.nick});
 
                                 }}>Unfollow</button>
                                 :
-                                <button disabled={props.followingInProgres.some(id => id === u._id)} onClick={() => {
-                                    props.follow(u._id);
+                                <button disabled={props.followingInProgres.some(nick => nick === u.nick)} onClick={() => {
+                                    props.follow({
+                                        authUserId:props.authUserId,
+                                        nick:u.nick});
 
                                 }}>Follow</button>}
                         </div>

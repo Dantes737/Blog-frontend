@@ -9,12 +9,14 @@ import UPanelContainer from './UsersPage/UPageContainer.js';
 import AuthComponent from './AuthComponents/AuthConponent.js';
 
 import './App.css';
+import  AddPostContainer  from '../components/AddPostComponent/AddPostContainer.js';
 
 function MyApp() {
   return (
     <div className="globalDiv">
       <Router>
       <HeaderConteiner />
+      <Route exact path="/add-post" render={()=><AddPostContainer/>}/>
       <Route exact path="/auth" render={()=><AuthComponent/>} />
         <Route exact path="/" render={()=><IndexB/>} />
         <Route path="/profile/:userId?" component={ProfileConteiner} />

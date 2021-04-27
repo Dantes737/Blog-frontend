@@ -7,7 +7,7 @@ import './PostsAndfilter.css';
 function BandP() {
   return (
     <div className="allCont">
-      <FilterContainer/>
+      <FilterContainer />
       <PostsContainer />
     </div>
   );

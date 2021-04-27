@@ -4,12 +4,12 @@ import './SecondBar.css';
 
 function SecondBar(props) {
 
-  let myFriends=props.friends.map(f=><User key={f.nick} nick={f.nick} src={f.src} />)
+  let myFriends = props.usersProfiles.map(f => <User key={f._id} nick={f.nick} src={f.avatarIMG} />)
 
   return (
     <div className="secondbar">
- {myFriends}
-     
+      {myFriends}
+
     </div>
   );
 }

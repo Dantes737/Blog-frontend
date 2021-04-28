@@ -86,6 +86,22 @@ export const postsAPI = {
                 text: data.text
             }
         )
-            .then((res) =>res.data.posts)
+            .then((res) => res.data.posts)
+    },
+};
+export const commentsAPI = {
+    getComments() {
+        return instanse.get('coments/comments-list')
+            .then((res) => res.data.comments)
+    },
+    addNewComment(data) {
+        return instanse.post('coments/add-comment',
+            {
+                postID: data.post_id,
+                nick: data.nick,
+                text: data.text
+            }
+        )
+            .then((res) => res.data.comments)
     },
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { getPostsFromDB } from '../../../../redux/posts-reducer.js'
+import { getCommentsFromDB } from '../../../../redux/coments-reducer'
 import Posts from './Posts.js';
 
 ///////////////////////////
@@ -9,6 +10,7 @@ class PostsContainer extends React.Component {
 
   componentDidMount() {
       this.props.getPostsFromDB();
+      this.props.getCommentsFromDB();
   };
 
   render() {
@@ -28,5 +30,5 @@ const mapStateToProps = (state) => {
 
 
   export default compose(
-    connect(mapStateToProps, { getPostsFromDB })
+    connect(mapStateToProps, {getCommentsFromDB,getPostsFromDB })
   )(PostsContainer)

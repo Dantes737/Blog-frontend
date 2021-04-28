@@ -1,6 +1,22 @@
+import React from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { getPostsFromDB } from '../../../../redux/posts-reducer.js'
 import Posts from './Posts.js';
 
+///////////////////////////
+class PostsContainer extends React.Component {
+
+  componentDidMount() {
+      this.props.getPostsFromDB();
+  };
+
+  render() {
+      return (
+          <Posts {...this.props} />
+      )
+  };
+};
 
 const mapStateToProps = (state) => {
   return {
@@ -10,7 +26,7 @@ const mapStateToProps = (state) => {
   }
 }; 
 
-const PostsContainer = connect(mapStateToProps, null)(Posts);
 
- 
-export default PostsContainer;
+  export default compose(
+    connect(mapStateToProps, { getPostsFromDB })
+  )(PostsContainer)

@@ -1,18 +1,14 @@
-import { connect } from 'react-redux';
+import React from 'react';
 import AddPostPage from './AddPostComp.js';
-import { addPostActionCreator } from "../../redux/posts-reducer.js";
 
+const AddPostContainer = () => {
+    return (
+        <div>
+            <AddPostPage />
+        </div>
+    )
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addUserPost: (textInp) => {
-      let action=addPostActionCreator(textInp);
-      dispatch(action);
-    }
-  }
 };
-
-const AddPostContainer = connect(null,mapDispatchToProps)(AddPostPage);
 
 
 export default AddPostContainer;

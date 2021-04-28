@@ -30,14 +30,18 @@ export const profileAPI = {
     getUnfollowed(data) {
         console.log(data);
         return instanse.post('profiles/unfollow',
-        { userNick: data.nick,
-            authId:data.authUserId })
+            {
+                userNick: data.nick,
+                authId: data.authUserId
+            })
             .then((res) => res.data)
     },
     getFollowed(data) {
         return instanse.post('profiles/follow',
-            { userNick: data.nick,
-            authId:data.authUserId })
+            {
+                userNick: data.nick,
+                authId: data.authUserId
+            })
             .then((res) => res.data)
     },
     getLogin() {
@@ -67,4 +71,21 @@ export const authAPI = {
     //     return instanse.delete('user-auth/login')
     //         .then((res) => res.data)
     // }
+};
+
+export const postsAPI = {
+    getPosts() {
+        return instanse.get('posts/posts-list')
+            .then((res) => res.data.posts)
+    },
+    addNewPost(data) {
+        return instanse.post('posts/add-post',
+            {
+                title: data.title,
+                nick: data.nick,
+                text: data.text
+            }
+        )
+            .then((res) =>res.data.posts)
+    },
 };

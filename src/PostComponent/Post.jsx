@@ -13,6 +13,7 @@ function Post(props) {
             <div>{props.nick}</div>
             
                 <img className="postImg" src={props.img} alt="Post IMG" />
+                <h2>{props.title}</h2>
             <p>{props.text}</p>
             <div>Data</div>
 <ComentsContainer coments={props.coments} />

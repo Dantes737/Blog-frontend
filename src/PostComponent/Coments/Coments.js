@@ -4,8 +4,8 @@ import "./Coments.css";
 import AddCommComp from '../../components/AddComentsComp/AddCommComp';
 
 function Coments(props) {
-
-    let usersComents = props.coments.map(com => <UserComent key={com._id} data={com.date} nick={com.userNick} text={com.text} />)
+let currentPostComments=props.coments.filter(el=>el.post_ID===props.postId)
+    let usersComents = currentPostComments.map(com => <UserComent key={com._id} data={com.data} nick={com.userNick} text={com.text} />)
 
     return (
         <div className="coments">

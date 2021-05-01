@@ -3,7 +3,6 @@ import { Field, reduxForm } from 'redux-form';
 import { Element } from '../FormsControls/FormsControls.js';
 import { required, maxLenghtCreator } from '../../utils/validators.js';
 import './AddCommStyles.css';
-// import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addComments } from '../../redux/coments-reducer.js';
 
@@ -55,16 +54,15 @@ const AddCommPage = (props) => {
 
   if (addBtnClicked) {
     return (
-      <div className="filt">
-        {/* <NavLink to="/">Go home</NavLink> */}
+      <div>
         <AddCommentReduxForm onSubmit={addNewComment} />
         <button onClick={cancelAdding}>Cancel</button>
       </div>
     );
   }
   return (
-    <div className="filt">
-      <button onClick={openCommentInput}>Add new comment</button>
+    <div>
+      <button className="addComBtn" onClick={openCommentInput}>Add new comment</button>
     </div>
   );
 

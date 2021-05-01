@@ -32,11 +32,23 @@ export const setUsersComments=(comments)=>({type:SET_COMMENTS,usersComments:comm
 // export const addComentActionCreator = (textInp) => {
 //     return { type: ADDCOMMENT, text: textInp }
 // };
+export const deleteCommentFromDB=(id)=>{
+    commentsAPI.delComment(id)
+    // .then((postsData)=>{
+    //     dispatch(setUsersPosts(postsData))
+    // })
+};
 export const getCommentsFromDB=()=>(dispatch)=>{
     commentsAPI.getComments().then((commentsData)=>{
         dispatch(setUsersComments(commentsData))
     })
 };
+export const getOnlyUserComents=(nick)=>(dispatch)=>{
+    commentsAPI.getUserComments(nick).then((commentsData)=>{
+        dispatch(setUsersComments(commentsData))
+    })
+};
+
 export const addComments=(data)=>(dispatch)=>{
     commentsAPI.addNewComment(data).then((commentsData)=>{
         dispatch(setUsersComments(commentsData))

@@ -2,6 +2,7 @@
     background-color: #e0d0ff;
     border-radius: 5px;
     height:max-content;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .postImg{
     width:97%;
@@ -9,4 +10,18 @@
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+.postAuthor{
+    display: inline;
+    float:left;
+    margin: 0.8%;
+    color: #7e5292e1;
+    font-family:  monospace;
+}
+.postDate{
+    display: inline;
+    float:right;
+    margin: 0.8%;
+    color: #7e5292e1;
+    font-family: monospace;
 }

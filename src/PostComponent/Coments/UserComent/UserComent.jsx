@@ -6,10 +6,8 @@ import './UserComent.css';
 function Coments(props) {
     return (
         <div className="coment">
-            <div>{props.nick}</div>  
+            <div className="comentAuthor"><strong>{props.nick}:</strong></div>  
             <div className="comentText">{props.text}</div>            
-            <div>Data : {props.data}</div>
-
         </div>
     )
 }

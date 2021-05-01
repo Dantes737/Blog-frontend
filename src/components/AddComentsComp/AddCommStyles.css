@@ -1,0 +1,13 @@
+.textInp{
+    width: 83%;
+    height: 100px;
+    padding: 1% 1%;
+    box-sizing: border-box;
+    border: 2px solid #00c3a3;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: vertical;
+}
+.addComBtn{
+    background-color: #ff9d00ec;
+}

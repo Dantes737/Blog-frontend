@@ -30,7 +30,6 @@ const [friends, setFriends] = useState(props.profileFriends)
     };
     
     return <div className="userspage">
-        <NavLink to="/">Go home</NavLink>
         <div>Pages of users:
         {pages.map(p => {
             return <span key={p}

@@ -1,7 +1,7 @@
 .coments{
     /* background-color: #f0a824; */
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
+    /* border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px; */
     margin: 2%;
     height:max-content;
 }
@@ -15,22 +15,3 @@
     background-color: #f8f8f8;
     resize: vertical;
 }
-.addComBtn {
-    background-color: #00c3a3; 
-    border: 2px solid #00c3a3 ;
-    color: white;
-    padding: 1% 2%;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size:16px;
-    float: right;/*   <<<<<=========== ====    ======       */
-    transition-duration: 0.4s;
-    cursor: pointer;
-  }
-  
-.addComBtn:hover {
-  border: 2px solid #00c3a3 ;
-    background-color: white; /* Green */
-    color: #00c3a3;
-  }

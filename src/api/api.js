@@ -103,6 +103,11 @@ export const commentsAPI = {
         return instanse.get('coments/comments-list')
             .then((res) => res.data.comments)
     },
+    getUserComments(nick) {
+        return instanse.get(`coments/user-comments/${nick}`)
+            .then((res) => res.data.comments)
+    },
+    
     addNewComment(data) {
         return instanse.post('coments/add-comment',
             {
@@ -113,4 +118,7 @@ export const commentsAPI = {
         )
             .then((res) => res.data.comments)
     },
+    delComment(id){
+        return instanse.delete(`coments/deleteComment/${id}`)
+    }
 };

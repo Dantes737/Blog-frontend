@@ -3,9 +3,12 @@ import Preloader from '../../../components/Preloader/Preloader.js';
 import './UserProfile.css';
 import ProfileStatus from './ProfileStatus.js';
 import CustomePost from '../../../components/PostComponent/MyPost.js';
+import CustomeComments from '../../../components/CommentsComponent/MyComments.js';
+
 
 function UserProfile(props) {
     let postsConp = props.myPosts.map(post => <CustomePost key={post._id} post_ID={post._id} title={post.title} img={post.img} text={post.text} />)
+    let commentsConp = props.myComents.map(comment => <CustomeComments key={comment._id} comment_ID={comment._id} text={comment.text} />)
     if (!props.profile) {
         return <Preloader />
 
@@ -33,6 +36,7 @@ function UserProfile(props) {
                 {postsConp}
                 <hr />
                 <div>{props.profile.nick} comments.</div>
+                {commentsConp}
             </div>
         )
     }

@@ -3,12 +3,10 @@
     border-bottom: 2px solid blueviolet;
 }
 .comentText{
-    /* white-space: pre-wrap; */
     width: 58%;
-     /* white-space: nowrap;  */
-    /* width: 600px;  */
-    /* overflow-x:hidden;
-    text-overflow:ellipsis;  */
-    /* border: 1px solid #a7a7a7; 
-    border-radius: 5 px; */
+    display: block;
 }
+.comentAuthor{
+color: rgba(69, 0, 134, 0.904);
+}
+

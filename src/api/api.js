@@ -74,8 +74,14 @@ export const authAPI = {
 };
 
 export const postsAPI = {
+    getUserPosts(nick) {
+        return instanse.get(`posts/user-posts/${nick}`)
+            .then((res) => res.data.posts)
+
+    },
     getPosts() {
-        return instanse.get('posts/posts-list')
+
+        return instanse.get(`posts/posts-list`)
             .then((res) => res.data.posts)
     },
     addNewPost(data) {
@@ -88,6 +94,9 @@ export const postsAPI = {
         )
             .then((res) => res.data.posts)
     },
+    delPost(id){
+        return instanse.delete(`posts/deletePost/${id}`)
+    }
 };
 export const commentsAPI = {
     getComments() {

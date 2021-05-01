@@ -1,31 +1,38 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import Preloader from '../../../components/Preloader/Preloader.js';
 import './UserProfile.css';
 import ProfileStatus from './ProfileStatus.js';
+import CustomePost from '../../../components/PostComponent/MyPost.js';
 
 function UserProfile(props) {
+    let postsConp = props.myPosts.map(post => <CustomePost key={post._id} post_ID={post._id} title={post.title} img={post.img} text={post.text} />)
     if (!props.profile) {
         return <Preloader />
+
     }
     else {
         return (
             <div className="userprof">
-                <div><NavLink to="/">Go home</NavLink></div>
-
-                <img className="userFoto" alt="img gone" src={props.profile.avatarIMG} />
-                <div className="userInfo">
-                    <div>Нікнейм: {props.profile.nick}</div>
-                    <div>Місто: {props.profile.city}</div>
-                    <ProfileStatus userId={props.id} status={props.profile.status} updateStatus={props.updateStatus} />
-                    {props.profile.friends ?
+                <div>
+                    <img className="userFoto" alt="img gone" src={props.profile.avatarIMG} />
+                    <div className="userInfo">
+                        <div>Нікнейм: {props.profile.nick}</div>
+                        <div>Місто: {props.profile.city}</div>
+                        <ProfileStatus userId={props.id} status={props.profile.status} updateStatus={props.updateStatus} />
+                        {props.profile.friends ?
                             <ul>Friends:
-                                {props.profile.friends.map(f => <li>{f}</li>)}
-                            </ul>        
-                        :
-                        <div>Zero (((</div>
-                    }
+                                {props.profile.friends.map(f => <li key={f}>{f}</li>)}
+                            </ul>
+                            :
+                            <div>Zero (((</div>
+                        }
+                    </div>
                 </div>
+                <hr />
+                <div>{props.profile.nick} posts:</div>
+                {postsConp}
+                <hr />
+                <div>{props.profile.nick} comments.</div>
             </div>
         )
     }

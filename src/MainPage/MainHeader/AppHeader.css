@@ -12,12 +12,6 @@ margin: 30px;
   font-size: 25px;
   color: blueviolet;
 }
-.searchInp{
-  width:60%;
-  height: 18px;
-  border: 1px solid blueviolet ;
-  border-radius: 5px;
-}
 
 .Lbtn:hover {
   background-color: blueviolet; /* Green */

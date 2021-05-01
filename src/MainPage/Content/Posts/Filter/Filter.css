@@ -7,6 +7,12 @@
     border-radius: 5px;
     height: max-content;
 }
+.searchInp{
+  width:50%;
+  height: 18px;
+  border: 1px solid blueviolet ;
+  border-radius: 5px;
+}
 
 .addBtn {
     background-color: #00c3a3; 

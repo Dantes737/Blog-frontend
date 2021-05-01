@@ -1,6 +1,6 @@
 import React from 'react';
 import './Post.css';
-import ComentsContainer from "./Coments/ComentsContainer";
+import Coments from "./Coments/Coments";
 
 
 
@@ -16,7 +16,7 @@ function Post(props) {
             <h2>{props.title}</h2>
             <p>{props.text}</p>
             <div>Data : {props.data}</div>
-            <ComentsContainer postId={props.postID} coments={props.coments} />
+            <Coments postId={props.postID} coments={props.coments} />
         </div>
     )
 }

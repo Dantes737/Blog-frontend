@@ -38,6 +38,17 @@ export const getPostsFromDB=()=>(dispatch)=>{
         dispatch(setUsersPosts(postsData))
     })
 };
+export const deletePostFromDB=(id)=>{
+    postsAPI.delPost(id)
+    // .then((postsData)=>{
+    //     dispatch(setUsersPosts(postsData))
+    // })
+};
+export const getOnlyUserPosts=(nick)=>(dispatch)=>{
+    postsAPI.getUserPosts(nick).then((postsData)=>{
+        dispatch(setUsersPosts(postsData))
+    })
+};
 export const addPosts=(data)=>(dispatch)=>{
     postsAPI.addNewPost(data).then((postsData)=>{
         dispatch(setUsersPosts(postsData))

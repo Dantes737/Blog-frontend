@@ -2,7 +2,7 @@ import React from 'react';
 import UserProfile from './UserProfile.js';
 import { connect } from 'react-redux';
 import { getUserProfile, updateStatus } from '../../../redux/profile-reducer'
-import { getOnlyUserPosts } from '../../../redux/posts-reducer.js'
+import { getOnlyUserPosts,deletePostFromDB } from '../../../redux/posts-reducer.js'
 import { getOnlyUserComents } from '../../../redux/coments-reducer.js'
 
 import { withRouter } from 'react-router-dom';
@@ -34,7 +34,7 @@ let mapStateToProps = (state) => ({
 });
 
 export default compose(
-    connect(mapStateToProps, { updateStatus, getUserProfile, getOnlyUserPosts,getOnlyUserComents }),
+    connect(mapStateToProps, { updateStatus, getUserProfile,deletePostFromDB, getOnlyUserPosts,getOnlyUserComents }),
     withRouter,
     WithAuthRedirect
 )(ProfileConteiner);

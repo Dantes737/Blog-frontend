@@ -1,0 +1,22 @@
+.textInp{
+    margin-top: 1%;
+    width: 100%;
+    height: 100px;
+    padding: 1% 1%;
+    box-sizing: border-box;
+    border: 2px solid #00c3a3;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize:none;
+}
+.titleInp{
+    width: 100%;
+    padding: 1% 1%;
+    box-sizing: border-box;
+    border: 2px solid #00c3a3;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+}
+.addPostBtn{
+    background-color: #ff9d00ec;
+}

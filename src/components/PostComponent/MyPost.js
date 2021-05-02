@@ -1,11 +1,9 @@
 import React from 'react';
 import './MyPost.css';
-import { deletePostFromDB } from '../../redux/posts-reducer.js';
 
 const CustomePost = (props) => {
     let deleteCurrentPost = () => {
-        console.log(props.post_ID);
-        deletePostFromDB(props.post_ID)
+        props.deletePost(props.post_ID)
     }
     return (
         <div className="mainConteiner">

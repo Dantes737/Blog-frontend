@@ -7,16 +7,14 @@ import IndexB from './Content/IndexB';
 import ProfileConteiner from './Content/UserProfile/ProfileContainer';
 import UPanelContainer from './UsersPage/UPageContainer.js';
 import AuthComponent from './AuthComponents/AuthConponent.js';
-
 import './App.css';
-import  AddPostPage  from '../components/AddPostComponent/AddPostComp.js';
+
 
 function MyApp() {
   return (
     <div className="globalDiv">
       <Router>
       <HeaderConteiner />
-      <Route exact path="/add-post" render={()=><AddPostPage/>}/>
       <Route exact path="/auth" render={()=><AuthComponent/>} />
         <Route exact path="/" render={()=><IndexB/>} />
         <Route path="/profile/:userId?" component={ProfileConteiner} />

@@ -35,7 +35,7 @@ const AddPostForm = (props) => {
         placeholder="Write about something"
         validate={[required, maxLength200]}
       />
-      <button >Add post</button>
+      <button style={{float:'left'}} >Add post</button>
     </form>
   )
 };
@@ -66,21 +66,15 @@ const AddPostPage = (props) => {
         return (
           <div>
             <AddPostReduxForm onSubmit={addNewPost} />
-            <button onClick={cancelAdding}>Cancel</button>
+            <button style={{float:'right'}} onClick={cancelAdding}>Cancel</button>
           </div>
         );
       }
       return (
         <div>
-          <button  onClick={openCommentInput}>Add new post</button>
+          <button style={{width:'100%'}}  onClick={openCommentInput}>Add new post</button>
         </div>
       );
-  // return (
-  //   <div className="filt">
-  //     {/* <NavLink to="/">Go home</NavLink> */}
-  //     <AddPostReduxForm onSubmit={addNewPost} />
-  //   </div>
-  // );
 };
 
 const mapStateToProps = (state) => ({

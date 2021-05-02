@@ -8,7 +8,7 @@ import CustomeComments from '../../../components/CommentsComponent/MyComments.js
 
 function UserProfile(props) {
     let postsConp = props.myPosts.map(post => <CustomePost key={post._id} deletePost={props.deletePostFromDB} post_ID={post._id} title={post.title} img={post.img} text={post.text} />)
-    let commentsConp = props.myComents.map(comment => <CustomeComments key={comment._id} comment_ID={comment._id} text={comment.text} />)
+    let commentsConp = props.myComents.map(comment => <CustomeComments key={comment._id} deleteComment={props.deleteCommentFromDB} comment_ID={comment._id} text={comment.text} />)
     if (!props.profile) {
         return <Preloader />
 

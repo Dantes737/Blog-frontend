@@ -1,8 +1,8 @@
 import { postsAPI } from "../api/api";
 
 const ADDPOST = "ADD-POST";
-const SET_POSTS = "SET_POSTS"
-const DELETE_POST = "DELETE_POST"
+const SET_POSTS = "SET_POSTS";
+const DELETE_POST = "DELETE_POST";
 let initialState = {
     posts: []
 }

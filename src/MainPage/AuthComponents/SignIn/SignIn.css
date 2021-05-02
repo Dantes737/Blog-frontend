@@ -5,3 +5,7 @@
 .signinSpan:hover {
     color: white;
   }
+  .signinPage{
+      margin-left: auto;
+      margin-right: auto;
+  }

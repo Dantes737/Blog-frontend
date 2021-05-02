@@ -2,8 +2,8 @@ import React from 'react';
 import UserProfile from './UserProfile.js';
 import { connect } from 'react-redux';
 import { getUserProfile, updateStatus } from '../../../redux/profile-reducer'
-import { getOnlyUserPosts,deletePostFromDB } from '../../../redux/posts-reducer.js'
-import { getOnlyUserComents } from '../../../redux/coments-reducer.js'
+import { getOnlyUserPosts, deletePostFromDB } from '../../../redux/posts-reducer.js'
+import { getOnlyUserComents, deleteCommentFromDB } from '../../../redux/coments-reducer.js'
 
 import { withRouter } from 'react-router-dom';
 import { WithAuthRedirect } from '../../../hoc/withAuthRedirect.js'
@@ -34,7 +34,15 @@ let mapStateToProps = (state) => ({
 });
 
 export default compose(
-    connect(mapStateToProps, { updateStatus, getUserProfile,deletePostFromDB, getOnlyUserPosts,getOnlyUserComents }),
+    connect(mapStateToProps,
+        {
+            updateStatus,
+            getUserProfile,
+            deletePostFromDB,
+            deleteCommentFromDB,
+            getOnlyUserPosts,
+            getOnlyUserComents
+        }),
     withRouter,
     WithAuthRedirect
 )(ProfileConteiner);

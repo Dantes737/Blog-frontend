@@ -13,7 +13,7 @@ const AuthComponent = () => {
  };
 
   if (userIsNew) {
-    return <div >
+    return <div  >
     <SignIn changeStatus={()=>{setUserStatusOld()}}/>
   </div>
   }

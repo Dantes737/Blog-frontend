@@ -95,7 +95,6 @@ export const postsAPI = {
             .then((res) => res.data.posts)
     },
     delPost(id){
-        console.log("APiiii");
         return instanse.delete(`posts/deletePost/${id}`)
         .then((res)=>res.data.post)
     }
@@ -122,6 +121,6 @@ export const commentsAPI = {
     },
     delComment(id){
         return instanse.delete(`coments/deleteComment/${id}`)
-        // .then((res)=>res.data.post)
+        .then((res)=>res.data.comment)
     }
 };

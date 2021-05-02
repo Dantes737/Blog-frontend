@@ -1,7 +1,6 @@
 import React from 'react'
 import Post from '../../../../PostComponent/Post';
 import './Posts.css';
-import  AddPostPage  from '../../../../components/AddPostComponent/AddPostComp.js';
 
 
 function Posts(props) {
@@ -13,7 +12,7 @@ function Posts(props) {
 
   return (
     <div className="posts">
-         <AddPostPage/> 
+      
       {postsConp}
     </div>
   );

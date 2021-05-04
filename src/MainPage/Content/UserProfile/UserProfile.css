@@ -4,14 +4,16 @@
         margin-left: 1.5%;
         margin-right: 1.5%;
           border-radius: 5px;
-        height: 700px;;
+        /* height: 700px; */
  
 }
 .userFoto{
   width: 15%;
+  margin: 1%;
+  border-radius: 50%;
 }
 .userInfo{
   display: inline-block;
   background-color: #c2bdce78;
-  width: 80%;
+  width: 100%;
 }

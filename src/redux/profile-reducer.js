@@ -2,12 +2,14 @@ import { profileAPI } from '../api/api.js';
 
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_STATUS = "SET_STATUS";
+const SET_IMAGE= "SET_IMAGE";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 const TOGGLE_FOLLOWING_PROGRES = "TOGGLE_FOLLOWING_PROGRES";
 
 let initialState = {
     profile: null,
     status: "",
+    userAvatar:"",
     isFetching: false,
     followingInProgres: []
 }
@@ -21,6 +23,10 @@ const profileReducer = (state = initialState, action) => {
         case SET_STATUS:
             return {
                 ...state, status: action.status
+            };
+            case SET_IMAGE:
+            return {
+                ...state, userAvatar: action.image
             };
         case TOGGLE_IS_FETCHING:
             return {
@@ -42,6 +48,7 @@ const profileReducer = (state = initialState, action) => {
 
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 export const setStatus = (status) => ({ type: SET_STATUS, status });
+export const setAvatar = (image) => ({ type: SET_IMAGE, image });
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
 export const toggleFollowingProgres = (isFetching, userNICK) => ({ type: TOGGLE_FOLLOWING_PROGRES, isFetching, userNICK });
 
@@ -50,6 +57,7 @@ export const getUserProfile = (userId) => (dispatch) => {
         .then((resData) => {
             dispatch(setUserProfile(resData.user));
             dispatch(setStatus(resData.user.status));
+            dispatch(setAvatar(resData.user.avatarIMG));
         })
 };
 
@@ -57,6 +65,12 @@ export const updateStatus = (user) => (dispatch) => {
     profileAPI.updateStatus(user)
         .then((resData) => {
             dispatch(setStatus(resData.data.profile.status));
+        })
+};
+export const updateAvatar = (user) => (dispatch) => {
+    profileAPI.updateUserAvatar(user)
+        .then((resData) => {
+            dispatch(setAvatar(resData.data.profile.avatarIMG));
         })
 };
 

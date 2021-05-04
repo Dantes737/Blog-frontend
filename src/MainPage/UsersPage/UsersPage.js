@@ -30,9 +30,9 @@ const [friends, setFriends] = useState(props.profileFriends)
     };
     
     return <div className="userspage">
-        <div>Pages of users:
+        <div><span style={{fontSize:"24px"}}>Pages:</span>
         {pages.map(p => {
-            return <span key={p}
+            return <span style={{fontSize:"20px",marginLeft:"0.8%"}} key={p}
                 onClick={() => { props.onPageChanged(p); props.setCurrentPage(p) }}
                 // className={props.currentPage === p && 'selectedPage'}
                 className={props.currentPage === p ? 'selectedPage' : 'notSelectedPage'}

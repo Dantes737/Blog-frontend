@@ -6,3 +6,7 @@
 .loginSpan:hover {
       color: white;
     }
+    .loginPage{
+      margin-left: 1%;
+      margin-right: auto;
+  }

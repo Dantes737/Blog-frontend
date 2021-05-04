@@ -20,6 +20,14 @@ export const profileAPI = {
             .then((response) => (response.data))
 
     },
+    updateUserAvatar(user) {
+        return instanse.put('profiles/image',
+            {
+                image: user.imgSrc,
+                userId: user.userId
+            },
+            { headers: { authorization: `Bearer ${getToken()}` } })
+    },
     updateStatus(user) {
         return instanse.put('profiles/status',
             {

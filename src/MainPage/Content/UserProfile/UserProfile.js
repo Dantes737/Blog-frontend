@@ -2,6 +2,7 @@ import React from 'react';
 import Preloader from '../../../components/Preloader/Preloader.js';
 import './UserProfile.css';
 import ProfileStatus from './ProfileStatus.js';
+import ProfileImg from './ProfileImg.js';
 import CustomePost from '../../../components/PostComponent/MyPost.js';
 import CustomeComments from '../../../components/CommentsComponent/MyComments.js';
 
@@ -17,18 +18,23 @@ function UserProfile(props) {
         return (
             <div className="userprof">
                 <div>
-                    <img className="userFoto" alt="img gone" src={props.profile.avatarIMG} />
                     <div className="userInfo">
-                        <div>Нікнейм: {props.profile.nick}</div>
-                        <div>Місто: {props.profile.city}</div>
-                        <ProfileStatus userId={props.id} status={props.status} updateStatus={props.updateStatus} />
-                        {props.profile.friends ?
-                            <ul>Friends:
-                                {props.profile.friends.map(f => <li key={f}>{f}</li>)}
-                            </ul>
-                            :
-                            <div>Zero (((</div>
-                        }
+                        <img style={{float:"left"}} className="userFoto" alt="img gone" src={props.avatar} />
+                        <div style={{ display: "inline-block" }}>
+                            <div style={{fontSize:"24px" ,float:"left" }}>
+                            <div >User name: {props.profile.name}</div>
+                            <div >User age: {props.profile.age} years</div>
+                                <div >Nick: {props.profile.nick}</div>
+                                <div><span>Country: {props.profile.country}</span> <span>City: {props.profile.city}</span></div>
+                                <ProfileStatus userId={props.id} status={props.status} updateStatus={props.updateStatus} />
+                                {props.profile.friends ?
+                                  <div>Friends: {props.profile.friends.map(f=><span key={f}> {f}</span>)}</div>  
+                                    :
+                                    <div>Zero (((</div>
+                                }
+                            </div>
+                        </div>
+                    <ProfileImg userId={props.id} userImg={props.avatar} updateAvatar={props.updateAvatar}/>
                     </div>
                 </div>
                 <hr />

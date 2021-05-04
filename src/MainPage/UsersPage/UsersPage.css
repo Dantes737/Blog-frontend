@@ -1,7 +1,7 @@
 .userspage{   
         margin-top: 1%;
-        margin-left: 1.5%;
-        margin-right: 1.5%;
+        margin-left: 15%;
+        margin-right: 15%;
           border-radius: 5px;
         height: 700px;;
        /* background-color: #c2bdce78; */
@@ -25,11 +25,11 @@ display: inline;
 }
 
 .selectedPage{
-  font-weight: bold;
+  /* font-weight: bold; */
   cursor: pointer;
-  color: black;
+  color: white;
 }
 .notSelectedPage{
   cursor: pointer;
-  color: white;
+  color: black;
 }

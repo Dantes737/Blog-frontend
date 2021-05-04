@@ -1,7 +1,7 @@
 import React from 'react';
 import UserProfile from './UserProfile.js';
 import { connect } from 'react-redux';
-import { getUserProfile, updateStatus } from '../../../redux/profile-reducer'
+import { getUserProfile, updateStatus,updateAvatar } from '../../../redux/profile-reducer'
 import { getOnlyUserPosts, deletePostFromDB } from '../../../redux/posts-reducer.js'
 import { getOnlyUserComents, deleteCommentFromDB } from '../../../redux/coments-reducer.js'
 
@@ -28,6 +28,7 @@ class ProfileConteiner extends React.Component {
 let mapStateToProps = (state) => ({
     profile: state.myProfile.profile,
     status: state.myProfile.status,
+    avatar: state.myProfile.userAvatar,
     id: state.auth.userId,
     nick: state.auth.nick,
     myPosts: state.myPosts.posts,
@@ -38,6 +39,7 @@ export default compose(
     connect(mapStateToProps,
         {
             updateStatus,
+            updateAvatar,
             getUserProfile,
             deletePostFromDB,
             deleteCommentFromDB,

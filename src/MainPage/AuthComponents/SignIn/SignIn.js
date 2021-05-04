@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
-import { Element} from '../../../components/FormsControls/FormsControls';
+import { Element } from '../../../components/FormsControls/FormsControls';
 import { required } from '../../../utils/validators';
 import './SignIn.css';
 import '../../../components/FormsControls/FormsControls.css';
 import { signInUser } from '../../../redux/auth-reducer.js';
 
-const MyInput=Element("input");
+const MyInput = Element("input");
 
 const SignInForm = (props) => {
   return (
@@ -16,35 +16,38 @@ const SignInForm = (props) => {
       <div><Field component={MyInput} validate={[required]} type="text" name={"nick"} placeholder={"Nick"} /></div>
       <div><Field component={MyInput} validate={[required]} type="text" name={"email"} placeholder={"Email"} /></div>
       <div><Field component={MyInput} validate={[required]} type="text" name={"password"} placeholder={"Password"} /></div>
-      {props.error&&<div className={"formSummaryError"}>{props.error}</div>}
+      {props.error && <div className={"formSummaryError"}>{props.error}</div>}
       <div ><button>Sign In</button></div>
     </form>
-  )};
+  )
+};
 
-const SignInReduxForm=reduxForm({
+const SignInReduxForm = reduxForm({
   //a unique name for form
-  form:'signIn'
+  form: 'signIn'
 })(SignInForm)
 
 const SignIn = (props) => {
-  const onSubmit=(formData)=>{
+  const onSubmit = (formData) => {
     console.log(formData);
     props.signInUser(
-      formData.nick,formData.email,formData.password)
+      formData.nick, formData.email, formData.password)
   };
 
   if (props.isAuth) {
-    return <Redirect to={"/profile"}/>
+    return <Redirect to={"/profile"} />
   }
-  return <div className="signinPage">
-    <h1> SIGN IN </h1>
-    <SignInReduxForm onSubmit={onSubmit} />
-    <div>Or <span className="signinSpan" onClick={props.changeStatus}>LogIn</span> if you already have account</div>
+  return <div >
+    <div className="signinPage">
+      <h1> SIGN IN </h1>
+      <SignInReduxForm onSubmit={onSubmit} />
+      <div>Or <span className="signinSpan" onClick={props.changeStatus}>LogIn</span> if you already have account</div>
+    </div>
   </div>
 };
 
-const mapStateToProps=(state)=>({
-isAuth:state.auth.isAuth
+const mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth
 })
 
-export default connect(mapStateToProps,{signInUser})(SignIn);
+export default connect(mapStateToProps, { signInUser })(SignIn);

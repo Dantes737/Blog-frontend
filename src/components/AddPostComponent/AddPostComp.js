@@ -72,7 +72,9 @@ const AddPostPage = (props) => {
       }
       return (
         <div>
-          <button style={{width:'100%'}}  onClick={openCommentInput}>Add new post</button>
+          {/* <button style={{width:'100%'}}  onClick={openCommentInput}>Add new post</button> */}
+          <button className="addPostBtn" onClick={openCommentInput}>Add new post</button>
+        
         </div>
       );
 };

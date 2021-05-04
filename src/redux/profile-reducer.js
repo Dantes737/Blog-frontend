@@ -49,6 +49,7 @@ export const getUserProfile = (userId) => (dispatch) => {
     profileAPI.getProfile(userId)
         .then((resData) => {
             dispatch(setUserProfile(resData.user));
+            dispatch(setStatus(resData.user.status));
         })
 };
 

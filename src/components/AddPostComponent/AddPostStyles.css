@@ -17,6 +17,21 @@
     border-radius: 4px;
     background-color: #f8f8f8;
 }
-.addPostBtn{
-    background-color: #ff9d00ec;
-}
+
+.addPostBtn {
+    width: 100%;
+    background-color: #00c3a3; 
+    border: 2px solid #00c3a3 ;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+.addPostBtn:hover {
+  border: 2px solid #00c3a3 ;
+    background-color: white; /* Green */
+    color: #00c3a3;
+  }

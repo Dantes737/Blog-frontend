@@ -1,35 +1,44 @@
 import * as axios from 'axios';
+import store from '../redux/redux-store.js';
 
 // створюємо кастомний модуль , замість використання всієї бібліотеки
 // axios і використовуємо в роутах
 const instanse = axios.create({
     baseURL: 'http://localhost:5050/'
-})
-// or example
-// const instanseWithHeaders=axios.create({
-//     withCredentials:true,
-//     baseURL:'http://localhost:5050/',
-//     headers:{'API-KEY':'JSSJD-SDJSD-SDNSD-SNDSD'}
-// })
+});
+
+let getToken = () => {
+    return store.getState().auth.access_token
+};
+//////--------------------------------------------------------------------//////
+
 export const profileAPI = {
     getProfile(userId) {
-        return instanse.get(`profiles/u-profile/${userId}`)
+        return instanse.get(`profiles/u-profile/${userId}`,
+            { headers: { authorization: `Bearer ${getToken()}` } }
+        )
             .then((response) => (response.data))
+
     },
     updateStatus(user) {
-        return instanse.put('profiles/status', {
-            status: user.status,
-            userId: user.userId
-        })
+        return instanse.put('profiles/status',
+            { headers: { authorization: `Bearer ${getToken()}` } },
+            {
+                status: user.status,
+                userId: user.userId
+            })
     },
     getUsers(currentPage, pageSize) {
-        return instanse.get(`profiles/list?page=${currentPage}&limit=${pageSize}`)
+        return instanse.get(`profiles/list?page=${currentPage}&limit=${pageSize}`,
+            { headers: { authorization: `Bearer ${getToken()}` } }
+        )
             .then((response) => (response.data))
     },
 
     getUnfollowed(data) {
         console.log(data);
         return instanse.post('profiles/unfollow',
+            { headers: { authorization: `Bearer ${getToken()}` } },
             {
                 userNick: data.nick,
                 authId: data.authUserId
@@ -38,26 +47,15 @@ export const profileAPI = {
     },
     getFollowed(data) {
         return instanse.post('profiles/follow',
+        { headers: { authorization: `Bearer ${getToken()}` } },
             {
                 userNick: data.nick,
                 authId: data.authUserId
             })
             .then((res) => res.data)
-    },
-    getLogin() {
-        return instanse.post('users/login',
-            { email: 'test1.8@gmail.com', password: 'test1' })
-            .then((res) => res.data)
     }
 };
 
-// export const usersAPI = {
-//     getLogin() {
-//         return instanse.post('user-auth/login',
-//             { email: 'test1.8@gmail.com', password: 'test1' })
-//             .then((res) => res.data)
-//     }
-// };
 export const authAPI = {
     mySignIn(nick, email, password) {
         return instanse.post('user-auth/signup',
@@ -75,13 +73,16 @@ export const authAPI = {
 
 export const postsAPI = {
     getUserPosts(nick) {
-        return instanse.get(`posts/user-posts/${nick}`)
+        return instanse.get(`posts/user-posts/${nick}`,
+            { headers: { authorization: `Bearer ${getToken()}` } }
+        )
             .then((res) => res.data.posts)
 
     },
     getPosts() {
-
-        return instanse.get(`posts/posts-list`)
+        return instanse.get(`posts/posts-list`,
+            { headers: { authorization: `Bearer ${getToken()}` } }
+        )
             .then((res) => res.data.posts)
     },
     addNewPost(data) {
@@ -94,21 +95,24 @@ export const postsAPI = {
         )
             .then((res) => res.data.posts)
     },
-    delPost(id){
+    delPost(id) {
         return instanse.delete(`posts/deletePost/${id}`)
-        .then((res)=>res.data.post)
+            .then((res) => res.data.post)
     }
 };
 export const commentsAPI = {
     getComments() {
-        return instanse.get('coments/comments-list')
+        return instanse.get('coments/comments-list',
+            { headers: { authorization: `Bearer ${getToken()}` } })
             .then((res) => res.data.comments)
     },
     getUserComments(nick) {
-        return instanse.get(`coments/user-comments/${nick}`)
+        return instanse.get(`coments/user-comments/${nick}`,
+            { headers: { authorization: `Bearer ${getToken()}` } }
+        )
             .then((res) => res.data.comments)
     },
-    
+
     addNewComment(data) {
         return instanse.post('coments/add-comment',
             {
@@ -119,8 +123,8 @@ export const commentsAPI = {
         )
             .then((res) => res.data.comments)
     },
-    delComment(id){
+    delComment(id) {
         return instanse.delete(`coments/deleteComment/${id}`)
-        .then((res)=>res.data.comment)
+            .then((res) => res.data.comment)
     }
 };

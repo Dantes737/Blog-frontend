@@ -20,7 +20,7 @@ let reducers=combineReducers({
     form:formReducer
 
 });
-let store=createStore(reducers,applyMiddleware(thunkMiddleware));
+const store=createStore(reducers,applyMiddleware(thunkMiddleware));
 
 
 export default store ;

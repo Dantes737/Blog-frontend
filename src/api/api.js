@@ -95,7 +95,8 @@ export const postsAPI = {
             {
                 title: data.title,
                 nick: data.nick,
-                text: data.text
+                text: data.text,
+                imageSrc:data.image
             },
             { headers: { authorization: `Bearer ${getToken()}` } })
             .then((res) => res.data.posts)

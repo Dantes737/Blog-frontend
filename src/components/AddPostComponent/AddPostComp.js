@@ -28,6 +28,14 @@ const AddPostForm = (props) => {
         validate={[required, maxLength20]}
       />
       <Field
+        component={MyTitleInp}
+        type="text"
+        className="titleInp"
+        name="newPostImage"
+        placeholder="Enter image src link"
+        validate={[required]}
+      />
+      <Field
         component={MyTextarea}
         type="text"
         className="textInp"
@@ -35,7 +43,7 @@ const AddPostForm = (props) => {
         placeholder="Write about something"
         validate={[required, maxLength200]}
       />
-      <button style={{float:'left'}} >Add post</button>
+      <button style={{ float: 'left' }} >Add post</button>
     </form>
   )
 };
@@ -55,28 +63,31 @@ const AddPostPage = (props) => {
 
   const addNewPost = (formData) => {
     props.addPosts(
-      {nick:props.userNick,
-       text:formData.newPostBody,
-        title:formData.newPostTheme}
-        )
-        setaddBtn(false);
-      };
-
-      if (addBtnClicked) {
-        return (
-          <div>
-            <AddPostReduxForm onSubmit={addNewPost} />
-            <button style={{float:'right'}} onClick={cancelAdding}>Cancel</button>
-          </div>
-        );
+      {
+        nick: props.userNick,
+        text: formData.newPostBody,
+        title: formData.newPostTheme,
+        image: formData.newPostImage
       }
-      return (
-        <div>
-          {/* <button style={{width:'100%'}}  onClick={openCommentInput}>Add new post</button> */}
-          <button className="addPostBtn" onClick={openCommentInput}>Add new post</button>
-        
-        </div>
-      );
+    )
+    setaddBtn(false);
+  };
+
+  if (addBtnClicked) {
+    return (
+      <div>
+        <AddPostReduxForm onSubmit={addNewPost} />
+        <button style={{ float: 'right' }} onClick={cancelAdding}>Cancel</button>
+      </div>
+    );
+  }
+  return (
+    <div>
+      {/* <button style={{width:'100%'}}  onClick={openCommentInput}>Add new post</button> */}
+      <button className="addPostBtn" onClick={openCommentInput}>Add new post</button>
+
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => ({

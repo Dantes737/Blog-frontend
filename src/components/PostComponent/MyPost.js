@@ -7,14 +7,16 @@ const CustomePost = (props) => {
     }
     return (
         <div className="mainConteiner">
-            <div>
-                <img className="imgPP" src={props.img} alt="post foto" />
-                <button className="deleteBtn"
-                    onClick={deleteCurrentPost}
-                >Delete post</button>
+            <div style={{ backgroundColor: "#c2bdce78", borderRadius: "5px" }}>
+                <div>
+                    <img className="imgPP" src={props.img} alt="post foto" />
+                </div>
+                <div><h2>{props.title}</h2></div>
+                <div>{props.text}</div>
             </div>
-            <div><h2>{props.title}</h2></div>
-            <div>{props.text}</div>
+            <button className="deleteBtn"
+                onClick={deleteCurrentPost}
+            >Delete post</button>
         </div>
     )
 };

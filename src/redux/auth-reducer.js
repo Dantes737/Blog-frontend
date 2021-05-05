@@ -26,30 +26,30 @@ const authReducer = (state = initialState, action) => {
     }
 };
 
-export const setAuthUserData = (id, email, nick, access_token, isAuth) => ({ type: SET_USER_DATA, payload: { userId:id, email, nick, access_token, isAuth } });
+export const setAuthUserData = (id, email, nick, access_token, isAuth) => ({ type: SET_USER_DATA, payload: { userId: id, email, nick, access_token, isAuth } });
 
 export const signInUser = (nick, email, password) => (dispatch) => {
     authAPI.mySignIn(nick, email, password).then((data) => {
-        if (data.result && data.result === "Authorized") {
+        if (data.result === "warning") {
             console.log(data);
-            let { id, email, nick, access_token } = data.user.authData
-            dispatch(setAuthUserData(id, email, nick, access_token, true))
-        }
-    }).catch((e) => {
-        console.error(e.message)
-        dispatch(stopSubmit("signIn", { _error: "Email or password is wrong !" }));
+            dispatch(stopSubmit("signIn", { _error: `${data.message}` }));
+        } else
+            if (data.result && data.result === "Authorized") {
+                let { id, email, nick, access_token } = data.user.authData
+                dispatch(setAuthUserData(id, email, nick, access_token, true))
+            }
     })
 };
 
 export const login = (email, password) => (dispatch) => {
     authAPI.myLogin(email, password).then((data) => {
         if (data.result && data.result === "Authorized") {
-            console.log(data);
             let { id, email, nick, access_token } = data.user.authData
             dispatch(setAuthUserData(id, email, nick, access_token, true))
         }
     }).catch((e) => {
         console.error(e.message)
+        console.log(e);
         dispatch(stopSubmit("login", { _error: "Email or password is wrong !" }));
     })
 };

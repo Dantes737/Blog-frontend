@@ -8,7 +8,6 @@ import { WithAuthRedirect } from '../../hoc/withAuthRedirect.js';
 import { compose } from 'redux';
 
 class UsersApiComp extends React.Component {
-  //   let a=  `http://localhost:5050/users/list?page=3&limit=3`
 
   componentDidMount() {
     this.props.getUsers(this.props.currentPage, this.props.pageSize,this.props.authUserId);

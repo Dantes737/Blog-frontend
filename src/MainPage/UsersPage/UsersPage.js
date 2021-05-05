@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink} from 'react-router-dom';
 import './UsersPage.css';
 import userAvatar from '../../assets/images/user-avatar.png';
 import Preloader from '../../components/Preloader/Preloader.js';
@@ -48,11 +47,12 @@ const [friends, setFriends] = useState(props.profileFriends)
             <div>
                 {
                     props.users.map(u => <div key={u._id} className="user">
-                        <NavLink to={`/profile/${u._id}`}>
+                       
                             <div className="imgdd" ><img className="uIMG" src={u.avatarIMG != null ? u.avatarIMG : userAvatar} alt="User avatar" /></div>
-                        </NavLink>
-                        <div className="nickDD" >{u.nick} </div>
-                        <div className="nickDD" > Email:{u.email}</div>
+                       
+                        <div className="nickDD" >Nick: <span style={{color:"firebrick"}}>{u.nick}</span></div>
+                        <div className="nickDD" > Email:<span style={{color:"firebrick"}}>{u.email}</span></div>
+                        <div className="nickDD" > Name:<span style={{color:"firebrick"}}>{u.name}</span></div>
 
                         <div>
                             

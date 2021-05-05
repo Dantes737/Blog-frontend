@@ -20,10 +20,29 @@ export const profileAPI = {
             .then((response) => (response.data))
 
     },
+    updateUserProfile(user) {
+        return instanse.put('profiles/update-profile',
+            {
+                profileID: user.profileID,
+                age: user.age,
+                country: user.country,
+                city: user.city
+            },
+            { headers: { authorization: `Bearer ${getToken()}` } })
+            .then((res) => res.data)
+    },
     updateUserAvatar(user) {
         return instanse.put('profiles/image',
             {
                 image: user.imgSrc,
+                userId: user.userId
+            },
+            { headers: { authorization: `Bearer ${getToken()}` } })
+    },
+    updateUserName(user) {
+        return instanse.put('profiles/name',
+            {
+                name: user.name,
                 userId: user.userId
             },
             { headers: { authorization: `Bearer ${getToken()}` } })
@@ -38,6 +57,11 @@ export const profileAPI = {
     },
     getUsers(currentPage, pageSize) {
         return instanse.get(`profiles/list?page=${currentPage}&limit=${pageSize}`,
+            { headers: { authorization: `Bearer ${getToken()}` } })
+            .then((response) => (response.data))
+    },
+    getAllUsers() {
+        return instanse.get(`profiles/all-users`,
             { headers: { authorization: `Bearer ${getToken()}` } })
             .then((response) => (response.data))
     },
@@ -96,7 +120,7 @@ export const postsAPI = {
                 title: data.title,
                 nick: data.nick,
                 text: data.text,
-                imageSrc:data.image
+                imageSrc: data.image
             },
             { headers: { authorization: `Bearer ${getToken()}` } })
             .then((res) => res.data.posts)

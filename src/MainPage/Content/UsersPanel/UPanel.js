@@ -6,7 +6,7 @@ import User from "../../../UserComponent/User";
 function App(props) {
 
   let usersComponents = props.users.map((user) =>
-    <User key={user.id} nick={user.nick} src={user.avatarIMG} />)
+    <User key={user._id} nick={user.nick} src={user.avatarIMG} />)
     
   return (
     <div className="users">

@@ -25,8 +25,8 @@ function ProfileStatus(props) {
     return (
         <div>
             {!editMode &&
-                <div>
-                    <span onDoubleClick={activateEditMode}>{props.status}</span>
+                <div>Status:
+                    <span style={{ cursor: "pointer", color: "white" }} onDoubleClick={activateEditMode}>{props.status}</span>
                 </div>
             }
             {editMode &&

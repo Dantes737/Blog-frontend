@@ -2,14 +2,16 @@ import { profileAPI } from '../api/api.js';
 
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_STATUS = "SET_STATUS";
-const SET_IMAGE= "SET_IMAGE";
+const SET_NAME = "SET_NAME";
+const SET_IMAGE = "SET_IMAGE";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 const TOGGLE_FOLLOWING_PROGRES = "TOGGLE_FOLLOWING_PROGRES";
 
 let initialState = {
     profile: null,
     status: "",
-    userAvatar:"",
+    name: "",
+    userAvatar: "",
     isFetching: false,
     followingInProgres: []
 }
@@ -24,7 +26,11 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state, status: action.status
             };
-            case SET_IMAGE:
+        case SET_NAME:
+            return {
+                ...state, name: action.name
+            };
+        case SET_IMAGE:
             return {
                 ...state, userAvatar: action.image
             };
@@ -48,6 +54,7 @@ const profileReducer = (state = initialState, action) => {
 
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 export const setStatus = (status) => ({ type: SET_STATUS, status });
+export const setName = (name) => ({ type: SET_NAME, name });
 export const setAvatar = (image) => ({ type: SET_IMAGE, image });
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
 export const toggleFollowingProgres = (isFetching, userNICK) => ({ type: TOGGLE_FOLLOWING_PROGRES, isFetching, userNICK });
@@ -57,14 +64,27 @@ export const getUserProfile = (userId) => (dispatch) => {
         .then((resData) => {
             dispatch(setUserProfile(resData.user));
             dispatch(setStatus(resData.user.status));
+            dispatch(setName(resData.user.name));
             dispatch(setAvatar(resData.user.avatarIMG));
         })
 };
 
+export const updateProfile = (user) => (dispatch) => {
+    profileAPI.updateUserProfile(user)
+        .then((resData) => {
+            dispatch(setUserProfile(resData.profile));
+        })
+};
 export const updateStatus = (user) => (dispatch) => {
     profileAPI.updateStatus(user)
         .then((resData) => {
             dispatch(setStatus(resData.data.profile.status));
+        })
+};
+export const updateName = (user) => (dispatch) => {
+    profileAPI.updateUserName(user)
+        .then((resData) => {
+            dispatch(setName(resData.data.profile.name));
         })
 };
 export const updateAvatar = (user) => (dispatch) => {
@@ -94,7 +114,6 @@ export const unfollow = (followData) => {
                 dispatch(setUserProfile(data.profile));
                 dispatch(toggleFollowingProgres(false, followData.nick));
             })
-
     };
 };
 

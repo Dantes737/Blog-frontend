@@ -4,7 +4,7 @@ import UPanel from './UPanel.js';
 
 const mapStateToProps = (state) => {
   return {
-    users: state.myUsers.users
+    users: state.myUsers.allUsers
   }
 };
 

@@ -8,7 +8,7 @@ import { addComments } from '../../redux/coments-reducer.js';
 
 
 
-const maxLength10 = maxLenghtCreator(20);
+const maxLength40 = maxLenghtCreator(40);
 const MyTextarea = Element("textarea");
 
 
@@ -21,9 +21,9 @@ const AddCommentForm = (props) => {
         type="text"
         name="newCommentBody"
         placeholder="Write comment"
-        validate={[required, maxLength10]}
+        validate={[required, maxLength40]}
       />
-      <button className="addBtn">Add comment</button>
+      <button className="addComBtn">Add comment</button>
     </form>
   )
 };

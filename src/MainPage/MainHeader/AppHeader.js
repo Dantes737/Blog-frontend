@@ -5,6 +5,13 @@ import { NavLink } from 'react-router-dom';
 
 
 function App(props) {
+  if (!props.isAuth) {
+    return (
+      <div className="AppHeader">
+        <span className="logo">Just Blog</span>
+      </div>
+    );
+  }
   return (
     <div className="AppHeader">
       <span className="logo">Just Blog</span>

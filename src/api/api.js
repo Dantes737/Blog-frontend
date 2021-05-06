@@ -1,10 +1,11 @@
 import * as axios from 'axios';
 import store from '../redux/redux-store.js';
+// require('dotenv').config();
 
 // створюємо кастомний модуль , замість використання всієї бібліотеки
 // axios і використовуємо в роутах
 const instanse = axios.create({
-    baseURL: 'http://localhost:5050/'
+    baseURL:'https://blog-backend-35487.herokuapp.com/'
 });
 
 let getToken = () => {

@@ -11,6 +11,7 @@ class HeaderConteiner extends React.Component {
 }
 
 const mapStateToProps=(state)=>({
+  isAuth: state.auth.isAuth
 })
 
 export default connect(mapStateToProps,{LOGout})(HeaderConteiner);
